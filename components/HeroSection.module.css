@@ -3,7 +3,7 @@
 }
 
 .teal {
-  background: var(--color-teal-dark);
+  background: var(--color-teal-pale);
 }
 
 .neutral {
@@ -23,7 +23,7 @@
 }
 
 .teal .eyebrow {
-  color: var(--color-teal-light);
+  color: var(--color-teal-dark);
 }
 
 .neutral .eyebrow {
@@ -36,7 +36,7 @@
 }
 
 .teal .h1 {
-  color: var(--color-white);
+  color: var(--color-near-black);
 }
 
 .neutral .h1 {
@@ -49,7 +49,7 @@
 }
 
 .teal .subheading {
-  color: var(--color-teal-pale);
+  color: var(--color-dark-grey);
 }
 
 .neutral .subheading {
