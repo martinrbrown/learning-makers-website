@@ -112,6 +112,30 @@ a:hover {
   padding: 0 2rem;
 }
 
+/* Global button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  background: var(--color-crimson);
+  color: var(--color-white);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #600030;
+  color: var(--color-white);
+}
+
 main {
   flex: 1;
 }

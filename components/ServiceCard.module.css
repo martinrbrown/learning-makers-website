@@ -32,20 +32,4 @@
 .description {
   color: var(--color-dark-grey);
   line-height: 1.6;
-  flex: 1;
-}
-
-.link {
-  color: var(--color-teal-dark);
-  font-weight: 700;
-  text-decoration: none;
-  margin-top: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  transition: color 0.15s;
-}
-
-.link:hover {
-  color: var(--color-crimson);
-  text-decoration: underline;
 }

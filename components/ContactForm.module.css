@@ -58,20 +58,20 @@
 
 .submitButton {
   align-self: flex-start;
-  padding: 0.875rem 2rem;
-  background: var(--color-teal-dark);
+  padding: 0.75rem 1.75rem;
+  background: var(--color-crimson);
   color: var(--color-white);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
   border: none;
-  border-radius: 4px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: background-color 0.15s;
 }
 
 .submitButton:hover:not(:disabled) {
-  background: var(--color-crimson);
+  background: #600030;
 }
 
 .submitButton:disabled {

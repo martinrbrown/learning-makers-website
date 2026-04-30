@@ -63,13 +63,6 @@ export default function Nav() {
               )
             )}
           </ul>
-          <Link
-            href="/contact"
-            className={styles.ctaButton}
-            onClick={() => setMenuOpen(false)}
-          >
-            Get in touch
-          </Link>
         </nav>
 
         <button

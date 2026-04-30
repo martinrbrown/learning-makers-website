@@ -8,19 +8,16 @@ const services = [
     title: 'Co-design',
     description:
       'We plan and design alongside subject matter experts and people with lived experience, aligning with your goals and objectives.',
-    href: '/services',
   },
   {
     title: 'Capacity building',
     description:
       "We build your organisation's capability in digital learning and accessibility through training, coaching and mentoring.",
-    href: '/services',
   },
   {
     title: 'Accessibility & inclusion',
     description:
       'We specialise in accessible and inclusive learning design for WCAG compliance, mobile-first and low-tech environments.',
-    href: '/services',
   },
 ]
 
@@ -32,12 +29,9 @@ export default function HomePage() {
         h1="Accessibility skills for learning professionals"
         subheading="Practical, evidence-based courses for instructional designers and L&D teams who want to build genuinely inclusive learning experiences."
       >
-        <Link href="/services" className={styles.btnPrimary}>
-          Explore our services
+        <Link href="/contact" className="btn">
+          Get in touch
         </Link>
-        <span className={styles.btnDisabled} aria-disabled="true" title="Coming soon">
-          CPACC exam prep →
-        </span>
       </HeroSection>
 
       <section className={styles.servicesSection} aria-labelledby="services-heading">
@@ -54,6 +48,11 @@ export default function HomePage() {
               <ServiceCard key={service.title} {...service} />
             ))}
           </div>
+          <div className={styles.servicesAction}>
+            <Link href="/services" className="btn">
+              See our services
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -69,7 +68,7 @@ export default function HomePage() {
             Awareness Day, 21 May 2026.
           </p>
           <span className={styles.cpaccBtn} aria-disabled="true" title="Coming soon">
-            Explore CPACC prep →
+            Explore CPACC prep
           </span>
         </div>
       </section>
