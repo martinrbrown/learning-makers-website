@@ -20,13 +20,18 @@ export async function POST(req: NextRequest) {
       message,
     ].filter((line) => line !== null)
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'website@learningmakers.com',
       to: 'info@learningmakers.com',
       replyTo: email,
       subject: `New enquiry from ${name} — Learning Makers website`,
       text: bodyLines.join('\n'),
     })
+
+    if (error) {
+      console.error('Resend error:', error)
+      return NextResponse.json({ error: 'Failed to send' }, { status: 500 })
+    }
 
     return NextResponse.json({ ok: true })
   } catch (err) {
