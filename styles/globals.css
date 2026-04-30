@@ -1,0 +1,117 @@
+:root {
+  --color-teal-dark: #0D5C54;
+  --color-teal-mid: #86ADA9;
+  --color-teal-light: #C2D6D4;
+  --color-teal-pale: #E6EEEE;
+  --color-teal-surface: #F3F7F6;
+
+  --color-crimson: #7A0039;
+  --color-rose-mid: #B27893;
+  --color-rose-light: #DEBFCD;
+  --color-rose-pale: #F1E5EB;
+  --color-rose-surface: #F8F2F5;
+
+  --color-near-black: #2A2A2A;
+  --color-dark-grey: #555555;
+  --color-mid-grey: #AAAAAA;
+  --color-light-grey: #D4D4D4;
+  --color-off-white: #EEEEEE;
+  --color-white: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-atkinson), system-ui, sans-serif;
+  color: var(--color-dark-grey);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  font-size: 1rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  color: var(--color-near-black);
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-teal-dark);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-crimson);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-teal-dark);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 3px solid var(--color-teal-mid);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  flex: 1;
+}

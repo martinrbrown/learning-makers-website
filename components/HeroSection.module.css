@@ -1,0 +1,64 @@
+.hero {
+  padding: 5rem 0 4.5rem;
+}
+
+.teal {
+  background: var(--color-teal-dark);
+}
+
+.neutral {
+  background: var(--color-teal-surface);
+}
+
+.inner {
+  max-width: 800px;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.teal .eyebrow {
+  color: var(--color-teal-light);
+}
+
+.neutral .eyebrow {
+  color: var(--color-teal-dark);
+}
+
+.h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.teal .h1 {
+  color: var(--color-white);
+}
+
+.neutral .h1 {
+  color: var(--color-near-black);
+}
+
+.subheading {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.teal .subheading {
+  color: var(--color-teal-pale);
+}
+
+.neutral .subheading {
+  color: var(--color-dark-grey);
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}

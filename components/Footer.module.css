@@ -1,0 +1,42 @@
+.footer {
+  background: var(--color-near-black);
+  color: var(--color-mid-grey);
+  padding: 3rem 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.logoWrap {
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--color-mid-grey);
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a {
+  color: var(--color-mid-grey);
+  text-decoration: underline;
+  font-size: 0.875rem;
+  transition: color 0.15s;
+}
+
+.links a:hover {
+  color: var(--color-white);
+}

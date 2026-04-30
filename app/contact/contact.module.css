@@ -1,0 +1,36 @@
+.contactSection {
+  padding: 4rem 0 5rem;
+  background: var(--color-teal-surface);
+  min-height: 50vh;
+}
+
+.formCard {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 2.5rem;
+  max-width: 600px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 640px) {
+  .formCard {
+    padding: 1.5rem;
+  }
+}
+
+.directContact {
+  margin-top: 2rem;
+  max-width: 600px;
+  color: var(--color-dark-grey);
+}
+
+.directContact a {
+  color: var(--color-teal-dark);
+  font-weight: 700;
+}
+
+.location {
+  margin-top: 0.5rem;
+  color: var(--color-mid-grey);
+  font-size: 0.9375rem;
+}
