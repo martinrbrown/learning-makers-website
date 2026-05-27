@@ -1,0 +1,101 @@
+.intro {
+  padding: 4rem 0;
+  background: var(--color-teal-surface);
+}
+
+.introContent {
+  max-width: 720px;
+}
+
+.introContent p {
+  font-size: 1.0625rem;
+  color: var(--color-dark-grey);
+  line-height: 1.75;
+}
+
+/* Team section */
+.team {
+  padding: 5rem 0;
+  background: var(--color-white);
+}
+
+.bios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .bios {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photoWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: var(--color-teal-pale);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.bioName {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--color-near-black);
+  margin-bottom: 0.375rem;
+}
+
+.role {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-teal-dark);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.bioBody p {
+  font-size: 1.0625rem;
+  color: var(--color-dark-grey);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.bioBody p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA strip */
+.ctaStrip {
+  background: var(--color-teal-dark);
+  padding: 5rem 0;
+}
+
+.ctaHeading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-white);
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: var(--color-crimson);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: background-color 0.15s;
+}
+
+.ctaButton:hover {
+  background: #600030;
+  color: var(--color-white);
+}
