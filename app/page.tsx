@@ -58,18 +58,18 @@ export default function HomePage() {
 
       <section className={styles.cpaccBand} aria-labelledby="cpacc-heading">
         <div className="container">
-          <p className={styles.cpaccBadge}>Free resource — launching GAAD 21 May 2026</p>
+          <p className={styles.cpaccBadge}>Free resource</p>
           <h3 id="cpacc-heading" className={styles.cpaccHeading}>
             Preparing for the CPACC exam?
           </h3>
           <p className={styles.cpaccBody}>
-            Our free Companion Guide covers the full IAAP CPACC Body of Knowledge — structured,
-            searchable, and built for how you actually study. Launching on Global Accessibility
-            Awareness Day, 21 May 2026.
+            Our free Accessibility Quick Guide is now available. Use it as a companion to the IAAP
+            CPACC Body of Knowledge when preparing for your exam, or as a quick reference to refresh
+            your accessibility knowledge as you apply it to your work.
           </p>
-          <span className={styles.cpaccBtn} aria-disabled="true" title="Coming soon">
-            Explore CPACC prep
-          </span>
+          <Link href="/a11y-courses" className="btn">
+            Explore our courses
+          </Link>
         </div>
       </section>
     </>

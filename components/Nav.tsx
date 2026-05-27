@@ -8,7 +8,7 @@ import styles from './Nav.module.css'
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'CPACC prep', href: '/cpacc', comingSoon: true },
+  { label: 'Courses', href: '/a11y-courses' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -36,32 +36,17 @@ export default function Nav() {
           className={`${styles.nav} ${menuOpen ? styles.open : ''}`}
         >
           <ul className={styles.navList} role="list">
-            {navLinks.map((link) =>
-              link.comingSoon ? (
-                <li key={link.href}>
-                  <span
-                    className={styles.navLinkDisabled}
-                    aria-disabled="true"
-                    title="Coming soon"
-                  >
-                    {link.label}
-                    <span className={styles.comingSoonBadge} aria-hidden="true">
-                      Soon
-                    </span>
-                  </span>
-                </li>
-              ) : (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={styles.navLink}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            )}
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={styles.navLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
