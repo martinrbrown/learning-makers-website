@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import HeroSection from '@/components/HeroSection'
-import KitForm from './KitForm'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -48,7 +47,9 @@ export default function CoursesPage() {
             interactive activities, structured learning, and an in-house exam simulator.
           </p>
           <p className={styles.formLabel}>Stay informed about the course launch:</p>
-          <KitForm />
+          <div id="subscribe">
+            <div className="ml-embedded" data-form="ivibjd"></div>
+          </div>
         </div>
       </section>
     </>
