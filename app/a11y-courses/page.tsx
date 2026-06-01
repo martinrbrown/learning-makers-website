@@ -26,7 +26,7 @@ export default function CoursesPage() {
             your accessibility knowledge as you apply it to your work.
           </p>
           <Link
-            href="https://includl.com/mod/book/view.php?id=929"
+            href="https://courses.learningmakers.com/mod/book/view.php?id=929"
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
