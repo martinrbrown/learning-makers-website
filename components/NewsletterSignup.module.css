@@ -44,11 +44,15 @@
   margin-bottom: 1.5rem;
 }
 
-/* Pin the form's left edge to the column — override any MailerLite centring */
-.contentCol :global(.ml-embedded) {
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+/* Override MailerLite's internal centring so the form left-aligns with the heading */
+.contentCol :global(.ml-embedded),
+.contentCol :global(.ml-form-embed),
+.contentCol :global(.ml-form-embedWrapper),
+.contentCol :global(.ml-form-embedBody) {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  text-align: left !important;
 }
 
 @media (max-width: 768px) {
