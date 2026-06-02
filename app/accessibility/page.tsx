@@ -44,9 +44,11 @@ export default function AccessibilityPage() {
 
             <h2>Known limitations</h2>
             <p>
-              We are committed to ongoing improvement. We conduct regular accessibility reviews and
-              address issues as they are identified. If you encounter a problem we have not yet
-              resolved, we want to know about it.
+              The newsletter sign-up form on this site uses a third-party embed (MailerLite). This
+              embed contains an unlabelled honeypot field used for spam prevention, 2 orphaned form
+              labels and a skipped heading level in the confirmation message. These elements are not
+              visible to human users and do not affect form usability. They have been reported to
+              MailerLite as accessibility issues.
             </p>
 
             <h2>Feedback and contact</h2>
