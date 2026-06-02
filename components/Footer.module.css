@@ -17,6 +17,32 @@
   opacity: 0.6;
 }
 
+.badges {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navLinks a {
+  color: var(--color-mid-grey);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.15s;
+}
+
+.navLinks a:hover {
+  color: var(--color-white);
+}
+
 .copyright {
   font-size: 0.875rem;
   color: var(--color-mid-grey);
