@@ -1,6 +1,7 @@
 .newsletter {
   background: #F1E5EB;
   padding: 5rem 0;
+  scroll-margin-top: 5rem;
 }
 
 .inner {

@@ -3,7 +3,7 @@ import styles from './NewsletterSignup.module.css'
 
 export default function NewsletterSignup() {
   return (
-    <section className={styles.newsletter} aria-labelledby="newsletter-heading">
+    <section id="subscribe" className={styles.newsletter} aria-labelledby="newsletter-heading">
       <div className={`container ${styles.inner}`}>
         <div className={styles.imageCol}>
           <Image
