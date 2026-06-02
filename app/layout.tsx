@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Atkinson_Hyperlegible } from 'next/font/google'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import NewsletterSignup from '@/components/NewsletterSignup'
@@ -37,6 +38,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <NewsletterSignup />
         <Footer />
+        <Analytics />
       </body>
       <Script
         id="mailerlite-universal"
