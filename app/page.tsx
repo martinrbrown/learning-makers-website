@@ -36,7 +36,7 @@ export default function HomePage() {
           />
           <div>
             <h1 className={styles.heroH1}>
-              Instructional Design and Accessibility Consulting
+              Learning design that works for everyone
             </h1>
             <p className={styles.heroSubheading}>
               Practical, evidence-based courses and consulting for instructional designers and L&D
