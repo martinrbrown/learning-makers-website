@@ -19,7 +19,7 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.logo} aria-label="Learning Makers — home">
+        <Link href="/" className={styles.logo} aria-label="Learning Makers — return to home page">
           <Image
             src="/fulllogo.png"
             alt="Learning Makers"
