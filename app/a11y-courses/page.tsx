@@ -22,14 +22,12 @@ export default function CoursesPage() {
 
       <section className={styles.freeResource} aria-labelledby="guide-heading">
         <div className="container">
-          <p className={styles.eyebrow}>Free resource</p>
           <h2 id="guide-heading" className={styles.sectionHeading}>
             Preparing for the CPACC exam?
           </h2>
           <p className={styles.body}>
-            Our free Accessibility Quick Guide is now available. Use it as a companion to the IAAP
-            CPACC Body of Knowledge when preparing for your exam, or as a quick reference to refresh
-            your accessibility knowledge as you apply it to your work.
+            Our free CPACC Quick Guide covers the full IAAP Body of Knowledge (BoK). Use it to
+            prepare for your exam or as a quick reference as you apply accessibility in your work.
           </p>
           <Link
             href="https://courses.learningmakers.com/mod/book/view.php?id=929"
@@ -49,8 +47,8 @@ export default function CoursesPage() {
             CPACC Exam Preparation Course
           </h2>
           <p className={styles.body}>
-            A full exam preparation course built around the CPACC Body of Knowledge. Purpose-built
-            interactive activities, structured learning, and an in-house exam simulator.
+            A full exam preparation course built around the CPACC Body of Knowledge (BoK).
+            Purpose-built interactive activities, structured learning and an in-house exam simulator.
           </p>
         </div>
       </section>

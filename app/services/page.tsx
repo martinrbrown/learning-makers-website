@@ -14,7 +14,7 @@ const services = [
     id: 'co-design',
     title: 'Co-design',
     intro:
-      'Good learning starts with the right people in the room. We plan and design alongside subject matter experts, stakeholders, and people with lived experience. This approach aligns learning solutions with your organisational goals and the real needs of your learners.',
+      'Good learning starts with the right people in the room. We plan and design alongside subject matter experts, stakeholders and people with lived experience. This approach aligns learning solutions with your organisational goals and the real needs of your learners.',
     bullets: [
       'Learning needs analysis and audience profiling',
       'Learning architecture and course structure',
@@ -27,22 +27,22 @@ const services = [
     id: 'capacity-building',
     title: 'Capacity building',
     intro:
-      "We build your organisation's capability in digital learning and accessibility. We do not simply deliver a product and leave. Through training, coaching, and mentoring, we help your team develop the skills and confidence to create and maintain accessible, effective learning content independently.",
+      "We build your organisation's capability in digital learning and accessibility. We don't simply deliver a product and leave. Through training, coaching and mentoring, we help your team develop the skills and confidence to create and maintain accessible, effective learning content independently.",
     bullets: [
       'Accessibility awareness training for learning and development teams and content authors',
       'Moodle and LMS platform training for administrators and course builders',
       'H5P content development workshops',
       'One-on-one coaching and mentoring for learning designers',
-      'Structured capability uplift programmes for teams that are new to digital learning',
+      'Structured capability uplift programs for teams that are new to digital learning',
     ],
   },
   {
     id: 'accessibility-inclusion',
     title: 'Accessibility and inclusion',
     intro:
-      'We specialise in accessible and inclusive learning design for WCAG compliance, mobile-first delivery, and low-tech environments. Accessibility is not a feature we add at the end. It is the lens through which we approach every design decision.',
+      'We specialise in accessible and inclusive learning design for WCAG compliance, mobile-first delivery and low-tech environments. Accessibility is not a feature we add at the end. It is the lens through which we approach every design decision.',
     bullets: [
-      'Accessibility audits of existing eLearning content, Moodle courses, and H5P activities',
+      'Accessibility audits of existing interactive content and documents',
       'Remediation of inaccessible content, including documents, videos and interactive activities',
       'WCAG 2.x AA(A) compliance review and reporting',
       'Accessible document design (Word, PDF, PowerPoint)',
@@ -56,7 +56,7 @@ const services = [
     intro:
       'We help organisations get more from their learning platforms and tools, from initial configuration through to ongoing optimisation and integration. We bring both the technical capability and the instructional design judgement to make learning technology work as it should.',
     bullets: [
-      'Moodle configuration, customisation, and theme development',
+      'Moodle configuration and customisation',
       'LMS selection and implementation advice',
       'H5P content development and accessibility review',
       'Learning technology strategy and platform audits',
@@ -70,7 +70,7 @@ export default function ServicesPage() {
     <>
       <HeroSection
         h1="Services"
-        subheading="We work with education, community, and not-for-profit organisations to design learning that is accessible, effective, and built to last."
+        subheading="We work with education, health and not-for-profit organisations to design learning that is accessible, effective and built to last."
         imageSrc="/services.png"
         imageAlt=""
         imageSize="icon"
