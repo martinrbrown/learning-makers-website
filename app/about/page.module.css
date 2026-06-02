@@ -38,6 +38,7 @@
   overflow: hidden;
   margin-bottom: 1.5rem;
   background: var(--color-teal-pale);
+  max-width: 50%;
 }
 
 .photo {

@@ -15,6 +15,8 @@ export default function ContactPage() {
       <HeroSection
         h1="Get in touch"
         subheading="We work with education, health, and not-for-profit organisations. Tell us about your project and we'll be in touch shortly."
+        imageSrc="/contact.png"
+        imageAlt=""
       />
 
       <section className={styles.contactSection}>

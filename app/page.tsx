@@ -53,7 +53,6 @@ export default function HomePage() {
 
       <section className={styles.servicesSection} aria-labelledby="services-heading">
         <div className="container">
-          <p className={styles.sectionLabel}>What we do</p>
           <h2 id="services-heading" className={styles.sectionHeading}>
             Our services
           </h2>

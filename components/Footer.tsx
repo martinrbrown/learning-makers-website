@@ -16,7 +16,7 @@ export default function Footer() {
           />
         </div>
         <p className={styles.copyright}>
-          © 2026 Learning Makers. Martin &amp; Kirsty Brown, Melbourne, Australia.
+          © 2026 Learning Makers. Melbourne, Australia.
         </p>
         <nav aria-label="Footer navigation">
           <ul className={styles.links} role="list">

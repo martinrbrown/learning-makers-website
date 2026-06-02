@@ -16,7 +16,8 @@ export default function AboutPage() {
       <HeroSection
         h1="About Learning Makers"
         subheading="A small consultancy focused on one key idea: accessibility should be central to learning design, not an afterthought."
-        variant="neutral"
+        imageSrc="/about.png"
+        imageAlt=""
       />
 
       <section className={styles.intro} aria-label="About Learning Makers">

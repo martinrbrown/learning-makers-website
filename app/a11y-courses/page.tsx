@@ -12,7 +12,12 @@ export const metadata: Metadata = {
 export default function CoursesPage() {
   return (
     <>
-      <HeroSection h1="Courses" subheading="Resources and courses for accessibility practitioners and learning professionals." variant="neutral" />
+      <HeroSection
+        h1="Courses"
+        subheading="Resources and courses for accessibility practitioners and learning professionals."
+        imageSrc="/courses.png"
+        imageAlt=""
+      />
 
       <section className={styles.freeResource} aria-labelledby="guide-heading">
         <div className="container">

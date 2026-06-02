@@ -17,9 +17,8 @@
 }
 
 .image {
-  width: 100%;
+  width: 220px;
   height: auto;
-  max-width: 240px;
   display: block;
 }
 
@@ -34,6 +33,11 @@
   color: var(--color-dark-grey);
   line-height: 1.7;
   margin-bottom: 1.5rem;
+}
+
+/* Ensure MailerLite form aligns left with the heading and body */
+.content :global(.ml-embedded) {
+  margin-left: 0;
 }
 
 @media (max-width: 768px) {

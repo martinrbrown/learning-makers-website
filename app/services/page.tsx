@@ -71,6 +71,8 @@ export default function ServicesPage() {
       <HeroSection
         h1="Services"
         subheading="We work with education, community, and not-for-profit organisations to design learning that is accessible, effective, and built to last."
+        imageSrc="/services.png"
+        imageAlt=""
       />
 
       <div>

@@ -14,6 +14,27 @@
   max-width: 800px;
 }
 
+.innerWithImage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .innerWithImage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 .eyebrow {
   font-size: 0.8125rem;
   font-weight: 700;
