@@ -17,7 +17,7 @@ const atkinson = Atkinson_Hyperlegible({
 export const metadata: Metadata = {
   title: {
     template: '%s | Learning Makers',
-    default: 'Learning Makers — Instructional Design & Accessibility Consulting',
+    default: 'Learning Makers — Learning design that works for everyone',
   },
   description:
     'Practical, evidence-based courses for instructional designers and L&D teams who want to build genuinely inclusive learning experiences.',
