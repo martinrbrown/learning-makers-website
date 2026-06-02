@@ -35,6 +35,21 @@
   }
 }
 
+.innerWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.iconImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
 .eyebrow {
   font-size: 0.8125rem;
   font-weight: 700;

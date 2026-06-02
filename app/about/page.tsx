@@ -18,6 +18,7 @@ export default function AboutPage() {
         subheading="A small consultancy focused on one key idea: accessibility should be central to learning design, not an afterthought."
         imageSrc="/about.png"
         imageAlt=""
+        imageSize="icon"
       />
 
       <section className={styles.intro} aria-label="About Learning Makers">

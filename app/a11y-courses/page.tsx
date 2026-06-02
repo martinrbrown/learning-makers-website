@@ -17,6 +17,7 @@ export default function CoursesPage() {
         subheading="Resources and courses for accessibility practitioners and learning professionals."
         imageSrc="/courses.png"
         imageAlt=""
+        imageSize="icon"
       />
 
       <section className={styles.freeResource} aria-labelledby="guide-heading">

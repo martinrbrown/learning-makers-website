@@ -9,6 +9,7 @@ interface HeroSectionProps {
   variant?: 'teal' | 'neutral'
   imageSrc?: string
   imageAlt?: string
+  imageSize?: 'large' | 'icon'
 }
 
 export default function HeroSection({
@@ -19,17 +20,24 @@ export default function HeroSection({
   variant = 'teal',
   imageSrc,
   imageAlt,
+  imageSize = 'large',
 }: HeroSectionProps) {
+  const innerClass = !imageSrc
+    ? styles.inner
+    : imageSize === 'icon'
+      ? styles.innerWithIcon
+      : styles.innerWithImage
+
   return (
     <section className={`${styles.hero} ${styles[variant]}`}>
-      <div className={`container ${imageSrc ? styles.innerWithImage : styles.inner}`}>
+      <div className={`container ${innerClass}`}>
         {imageSrc && (
           <Image
             src={imageSrc}
             alt={imageAlt ?? ''}
-            width={800}
-            height={800}
-            className={styles.heroImage}
+            width={imageSize === 'icon' ? 80 : 800}
+            height={imageSize === 'icon' ? 80 : 800}
+            className={imageSize === 'icon' ? styles.iconImage : styles.heroImage}
             priority
           />
         )}
