@@ -46,10 +46,6 @@ export default function CoursesPage() {
             A full exam preparation course built around the CPACC Body of Knowledge. Purpose-built
             interactive activities, structured learning, and an in-house exam simulator.
           </p>
-          <p className={styles.formLabel}>Stay informed about the course launch:</p>
-          <div id="subscribe">
-            <div className="ml-embedded" data-form="ivibjd"></div>
-          </div>
         </div>
       </section>
     </>

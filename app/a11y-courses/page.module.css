@@ -55,11 +55,3 @@
   color: var(--color-near-black);
   margin-bottom: 1rem;
 }
-
-.formLabel {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--color-near-black);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}

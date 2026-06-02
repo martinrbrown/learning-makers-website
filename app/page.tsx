@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import HeroSection from '@/components/HeroSection'
 import ServiceCard from '@/components/ServiceCard'
 import styles from './page.module.css'
 
@@ -24,15 +24,32 @@ const services = [
 export default function HomePage() {
   return (
     <>
-      <HeroSection
-        eyebrow="Instructional design & accessibility consulting"
-        h1="Accessibility skills for learning professionals"
-        subheading="Practical, evidence-based courses for instructional designers and L&D teams who want to build genuinely inclusive learning experiences."
-      >
-        <Link href="/contact" className="btn">
-          Get in touch
-        </Link>
-      </HeroSection>
+      <section className={styles.homeHero}>
+        <div className={`container ${styles.heroInner}`}>
+          <Image
+            src="/home-page-image-800x800-squooshed.jpg"
+            alt="A wheelchair user sits on a bench in a park, looking at her phone."
+            width={800}
+            height={800}
+            className={styles.heroImage}
+            priority
+          />
+          <div>
+            <h1 className={styles.heroH1}>
+              Instructional Design and Accessibility Consulting
+            </h1>
+            <p className={styles.heroSubheading}>
+              Practical, evidence-based courses and consulting for instructional designers and L&D
+              teams. We help you build genuinely inclusive learning experiences.
+            </p>
+            <div className={styles.heroCtas}>
+              <Link href="/contact" className="btn">
+                Get in touch
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className={styles.servicesSection} aria-labelledby="services-heading">
         <div className="container">
@@ -58,14 +75,12 @@ export default function HomePage() {
 
       <section className={styles.cpaccBand} aria-labelledby="cpacc-heading">
         <div className="container">
-          <p className={styles.cpaccBadge}>Free resource</p>
           <h3 id="cpacc-heading" className={styles.cpaccHeading}>
             Preparing for the CPACC exam?
           </h3>
           <p className={styles.cpaccBody}>
-            Our free Accessibility Quick Guide is now available. Use it as a companion to the IAAP
-            CPACC Body of Knowledge when preparing for your exam, or as a quick reference to refresh
-            your accessibility knowledge as you apply it to your work.
+            Our free CPACC Quick Guide covers the full IAAP Body of Knowledge (BoK). Use it to
+            prepare for your exam or as a quick reference as you apply accessibility in your work.
           </p>
           <Link href="/a11y-courses" className="btn">
             Explore our courses

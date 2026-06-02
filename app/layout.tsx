@@ -3,6 +3,7 @@ import { Atkinson_Hyperlegible } from 'next/font/google'
 import Script from 'next/script'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import '../styles/globals.css'
 
 const atkinson = Atkinson_Hyperlegible({
@@ -34,6 +35,7 @@ export default function RootLayout({
         </a>
         <Nav />
         <main id="main-content">{children}</main>
+        <NewsletterSignup />
         <Footer />
       </body>
       <Script
