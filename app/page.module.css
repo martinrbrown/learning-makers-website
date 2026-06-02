@@ -40,9 +40,18 @@
 }
 
 @media (max-width: 768px) {
+  .homeHero {
+    padding: 2.5rem 0 3rem;
+  }
+
   .heroInner {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
+  }
+
+  .heroImage {
+    width: 100%;
+    max-height: 260px;
   }
 }
 
