@@ -29,7 +29,7 @@ export default function AboutPage() {
               <div className={styles.photoWrap}>
                 <Image
                   src="/martin.png"
-                  alt="Martin Brown"
+                  alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.photo}
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <div className={styles.photoWrap}>
                 <Image
                   src="/kirsty.jpg"
-                  alt="Kirsty Brown"
+                  alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className={styles.photo}
