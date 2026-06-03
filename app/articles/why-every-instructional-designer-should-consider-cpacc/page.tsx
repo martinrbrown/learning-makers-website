@@ -150,8 +150,8 @@ export default function CPACCArticlePage() {
               needing to sit down with a textbook.
             </p>
             <p>
-              You can find it at{' '}
-              <Link href="/a11y-courses">learningmakers.com/a11y-courses</Link>.
+              You can find it on the{' '}
+              <Link href="/a11y-courses">courses</Link> page.
             </p>
             <p>
               If you have questions about the exam or the study process, I'm happy to talk. Reach
