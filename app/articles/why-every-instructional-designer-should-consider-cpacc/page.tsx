@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import BackToTop from '@/components/BackToTop'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -161,6 +162,8 @@ export default function CPACCArticlePage() {
           </div>
         </div>
       </div>
+
+      <BackToTop />
     </article>
   )
 }
