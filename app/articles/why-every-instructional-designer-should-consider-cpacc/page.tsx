@@ -15,19 +15,21 @@ export default function CPACCArticlePage() {
       <div className={styles.articleHero}>
         <div className="container">
           <div className={styles.articleHeroInner}>
+            <div className={styles.heroText}>
+              <p className={styles.eyebrow}>Article</p>
+              <h1 className={styles.title}>
+                Why I think every instructional designer should consider CPACC
+              </h1>
+              <p className={styles.meta}>Martin Brown · 3 June 2026</p>
+            </div>
             <Image
               src="/cpacc-article-image-800x800.jpg"
               alt="A person holds a smartphone in a café, suggesting studying on the go."
-              width={800}
-              height={800}
+              width={320}
+              height={320}
               className={styles.articleImage}
               priority
             />
-            <p className={styles.eyebrow}>Article</p>
-            <h1 className={styles.title}>
-              Why I think every instructional designer should consider CPACC
-            </h1>
-            <p className={styles.meta}>Martin Brown · 3 June 2026</p>
           </div>
         </div>
       </div>
