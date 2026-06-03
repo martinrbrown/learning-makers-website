@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import styles from './page.module.css'
 
@@ -14,6 +15,14 @@ export default function CPACCArticlePage() {
       <div className={styles.articleHero}>
         <div className="container">
           <div className={styles.articleHeroInner}>
+            <Image
+              src="/cpacc-article-image-800x800.jpg"
+              alt="A person holds a smartphone in a café, suggesting studying on the go."
+              width={800}
+              height={800}
+              className={styles.articleImage}
+              priority
+            />
             <p className={styles.eyebrow}>Article</p>
             <h1 className={styles.title}>
               Why I think every instructional designer should consider CPACC

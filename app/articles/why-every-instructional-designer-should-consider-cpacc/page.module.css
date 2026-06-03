@@ -7,6 +7,14 @@
   max-width: 680px;
 }
 
+.articleImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 2rem;
+}
+
 .eyebrow {
   font-size: 0.8125rem;
   font-weight: 700;
@@ -25,7 +33,7 @@
 
 .meta {
   font-size: 0.9375rem;
-  color: var(--color-mid-grey);
+  color: #666666;
 }
 
 .content {

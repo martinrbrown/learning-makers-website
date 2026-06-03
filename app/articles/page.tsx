@@ -24,6 +24,9 @@ export default function ArticlesPage() {
       <HeroSection
         h1="Articles"
         subheading="Practical writing on accessibility, instructional design and inclusive learning."
+        imageSrc="/articles.png"
+        imageAlt=""
+        imageSize="icon"
       />
 
       <section className={styles.articles} aria-label="Articles list">
