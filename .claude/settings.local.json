@@ -5,7 +5,10 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Filter \"tailwind.config.*\" -Recurse -ErrorAction SilentlyContinue)",
       "Bash(vercel integrations *)",
       "Bash(vercel env *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Force | Select-Object Name, @{Label=\"Type\"; Expression={if \\($_.PSIsContainer\\) {\"DIR\"} else {\"FILE\"}}})"
     ]
   }
 }
