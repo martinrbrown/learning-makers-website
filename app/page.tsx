@@ -12,12 +12,12 @@ const services = [
   {
     title: 'Capacity building',
     description:
-      "We build your organisation's capability in digital learning and accessibility through training, coaching and mentoring.",
+      'We build the accessibility capability of your L&D team through training, coaching and mentoring.',
   },
   {
     title: 'Accessibility & inclusion',
     description:
-      'We specialise in accessible and inclusive learning design for WCAG compliance, mobile-first and low-tech environments.',
+      'We help you design, review and improve learning experiences that work for everyone.',
   },
 ]
 
