@@ -42,8 +42,8 @@ export default function AboutPage() {
               <p className={styles.role}>Instructional designer &amp; accessibility specialist</p>
               <div className={styles.bioBody}>
                 <p>
-                  Martin has spent decades building digital learning for government, not-for-profit
-                  and community organisations. Accessibility has been at the centre of that work —
+                  Martin has spent decades building digital learning for government, education and
+                  training, and not-for-profit organisations. Accessibility has been at the centre of that work —
                   not as a compliance requirement, but as a design discipline.
                 </p>
                 <p>

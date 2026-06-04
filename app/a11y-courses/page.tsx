@@ -44,11 +44,12 @@ export default function CoursesPage() {
         <div className="container">
           <p className={styles.comingSoonBadge}>Coming soon</p>
           <h2 id="course-heading" className={styles.courseHeading}>
-            CPACC Exam Preparation Course
+            Accessibility Testing and Auditing Course
           </h2>
           <p className={styles.body}>
-            A full exam preparation course built around the CPACC Body of Knowledge (BoK).
-            Purpose-built interactive activities, structured learning and an in-house exam simulator.
+            A practical course for L&amp;D professionals who want to test and audit learning
+            experiences for accessibility. Learn how to identify issues, interpret standards and make
+            informed decisions about remediation.
           </p>
         </div>
       </section>
