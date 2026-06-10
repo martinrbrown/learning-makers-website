@@ -307,6 +307,11 @@
   text-align: right;
 }
 
+/* ─── Content body lists ─────────────────────────────────────────── */
+.guide-reader .guide-main ul:not(.section-index) {
+  padding-left: 1.5rem;
+}
+
 /* ─── Cards / callouts ─────────────────────────────────────────── */
 .guide-reader .card {
   border-left: 4px solid;
