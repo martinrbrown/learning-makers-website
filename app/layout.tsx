@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { Atkinson_Hyperlegible } from 'next/font/google'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
-import Nav from '@/components/Nav'
-import Footer from '@/components/Footer'
-import NewsletterSignup from '@/components/NewsletterSignup'
 import '../styles/globals.css'
 
 const atkinson = Atkinson_Hyperlegible({
@@ -31,13 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={atkinson.variable}>
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Nav />
-        <main id="main-content">{children}</main>
-        <NewsletterSignup />
-        <Footer />
+        {children}
         <Analytics />
       </body>
       <Script
