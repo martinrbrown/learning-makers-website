@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { chapters } from '@/lib/guide';
 import { GUIDE_TITLE } from '@/lib/sections';
 import GuideReader from './GuideReader';
+import ReaderFooter from './ReaderFooter';
 import './reader.css';
 
 export const metadata: Metadata = {
@@ -17,12 +18,15 @@ const firstPageSlug =
 
 export default function GuideLayout({ children }: { children: ReactNode }) {
   return (
-    <GuideReader
-      chapters={chapters}
-      guideTitle={GUIDE_TITLE}
-      firstPageHref={`/courses/cpacc-quick-guide/${firstPageSlug}`}
-    >
-      {children}
-    </GuideReader>
+    <>
+      <GuideReader
+        chapters={chapters}
+        guideTitle={GUIDE_TITLE}
+        firstPageHref={`/courses/cpacc-quick-guide/${firstPageSlug}`}
+      >
+        {children}
+      </GuideReader>
+      <ReaderFooter />
+    </>
   );
 }
