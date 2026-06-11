@@ -24,7 +24,10 @@
       "Bash(sort -t: -k2 -n)",
       "Bash(grep -v \"^$\")",
       "Bash(xargs grep -l 'src=\"')",
-      "Bash(xargs -I{} basename {})"
+      "Bash(xargs -I{} basename {})",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\\\\app\\\\\\(reader\\)\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Name -Directory | Where-Object { $_ -eq \"content\" -or $_ -eq \"lib\" -or $_ -eq \"app\" })"
     ]
   }
 }
