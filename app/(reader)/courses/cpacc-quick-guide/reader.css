@@ -217,6 +217,10 @@
   font-size: 0.8rem;
   color: #666;
 }
+.guide-reader .guide-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+}
 .guide-reader .guide-breadcrumb li + li::before {
   content: '›';
   margin-right: 0.25rem;
