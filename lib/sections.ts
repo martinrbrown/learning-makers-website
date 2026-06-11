@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import type { Chapter } from './guide';
 
-export interface NavItem {
+interface NavItem {
   href: string;
   title: string;
 }

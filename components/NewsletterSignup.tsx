@@ -22,7 +22,7 @@ export default function NewsletterSignup() {
             New resources, upcoming courses and accessibility insights – a few times a year, no
             noise.
           </p>
-          <div className="ml-embedded" data-form="ivibjd" style={{ marginLeft: 0, width: '100%' }}></div>
+          <div className="ml-embedded" data-form="ivibjd"></div>
         </div>
 
       </div>

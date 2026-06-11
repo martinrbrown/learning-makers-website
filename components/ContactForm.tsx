@@ -94,7 +94,6 @@ export default function ContactForm() {
           autoComplete="name"
           className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
           aria-describedby={errors.name ? 'name-error' : undefined}
-          aria-required="true"
           aria-invalid={errors.name ? 'true' : undefined}
         />
         {errors.name && (
@@ -116,7 +115,6 @@ export default function ContactForm() {
           autoComplete="email"
           className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
           aria-describedby={errors.email ? 'email-error' : undefined}
-          aria-required="true"
           aria-invalid={errors.email ? 'true' : undefined}
         />
         {errors.email && (
@@ -151,7 +149,6 @@ export default function ContactForm() {
           rows={6}
           className={`${styles.textarea} ${errors.message ? styles.inputError : ''}`}
           aria-describedby={errors.message ? 'message-error' : undefined}
-          aria-required="true"
           aria-invalid={errors.message ? 'true' : undefined}
         />
         {errors.message && (

@@ -125,7 +125,7 @@ export default function GuideReader({
       <header className="guide-header">
         <h1 className="guide-site-title">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <Link href="/courses" aria-label="Back to Learningmakers Courses">
+          <Link href="/courses" aria-label="Back to Learning Makers Courses">
             <img src="/logomark.png" alt="" aria-hidden="true" className="guide-logo" />
           </Link>
           <Link href={firstPageHref}>{guideTitle}</Link>

@@ -12,7 +12,15 @@
       "Read(//c/Users/marti/Projects/**)",
       "Bash(dir \"c:\\\\Users\\\\marti\\\\Projects\")",
       "Bash(sed -i 's|<h4\\\\b|<h5|g; s|</h4>|</h5>|g' \"content/01-about.html\")",
-      "Bash(sed -i 's|<h3\\\\b|<h4|g; s|</h3>|</h4>|g' \"content/01-about.html\")"
+      "Bash(sed -i 's|<h3\\\\b|<h4|g; s|</h3>|</h4>|g' \"content/01-about.html\")",
+      "Bash(dir \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Force)",
+      "Bash(dir \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\\\\content\" -Force)",
+      "Bash(dir \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\\\\app\" -Force -Recurse)",
+      "Bash(rm public/file.svg public/globe.svg public/window.svg public/next.svg public/vercel.svg)",
+      "Bash(rm \"public/guide-content/css/styles.css\")",
+      "Bash(rmdir \"public/guide-content/css\")",
+      "Bash(rm \"app/\\(site\\)/courses/KitForm.tsx\")",
+      "Bash(rm app/globals.css)"
     ]
   }
 }

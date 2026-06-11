@@ -131,12 +131,3 @@ export function getChapter(slug: string): Chapter | undefined {
 export function getSection(parentSlug: string, subSlug: string): Chapter | undefined {
   return chapters.find(c => c.depth === 2 && c.parentSlug === parentSlug && c.slug === subSlug);
 }
-
-export function getAdjacentChapters(slug: string): { prev: Chapter | null; next: Chapter | null } {
-  const shallow = chapters.filter(c => c.depth < 2);
-  const index = shallow.findIndex(c => c.slug === slug);
-  return {
-    prev: index > 0 ? shallow[index - 1] : null,
-    next: index < shallow.length - 1 ? shallow[index + 1] : null,
-  };
-}
