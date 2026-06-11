@@ -27,7 +27,23 @@
       "Bash(xargs -I{} basename {})",
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\\\\app\\\\\\(reader\\)\" -Recurse -File)",
       "Bash(Select-Object FullName)",
-      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Name -Directory | Where-Object { $_ -eq \"content\" -or $_ -eq \"lib\" -or $_ -eq \"app\" })"
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\marti\\\\Projects\\\\learning-makers-website\" -Name -Directory | Where-Object { $_ -eq \"content\" -or $_ -eq \"lib\" -or $_ -eq \"app\" })",
+      "Bash(git -C c:/Users/marti/Projects/includl remote -v)",
+      "Bash(git -C c:/Users/marti/Projects/includl log --oneline -5)",
+      "Bash(rm -rf c:/Users/marti/Projects/includl/src)",
+      "Bash(rm -rf c:/Users/marti/Projects/includl/public)",
+      "Bash(rm -rf c:/Users/marti/Projects/includl/content)",
+      "Bash(rm -rf c:/Users/marti/Projects/includl/scripts)",
+      "Bash(rm -rf c:/Users/marti/Projects/includl/.vs)",
+      "Bash(mkdir -p c:/Users/marti/Projects/includl/app/api/export)",
+      "Bash(cp -r 'c:/Users/marti/Projects/learning-makers-website/app/\\(reader\\)' c:/Users/marti/Projects/includl/app/)",
+      "Bash(cp c:/Users/marti/Projects/learning-makers-website/app/api/export/route.ts c:/Users/marti/Projects/includl/app/api/export/)",
+      "Bash(cp c:/Users/marti/Projects/learning-makers-website/app/layout.tsx c:/Users/marti/Projects/includl/app/)",
+      "Bash(cp c:/Users/marti/Projects/learning-makers-website/app/favicon.ico c:/Users/marti/Projects/includl/app/)",
+      "Bash(npm run *)",
+      "Bash(git -C c:/Users/marti/Projects/includl status)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
