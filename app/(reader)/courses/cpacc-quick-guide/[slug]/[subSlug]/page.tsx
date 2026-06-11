@@ -7,7 +7,6 @@ import { chapters, getChapter, getSection } from '@/lib/guide';
 import {
   buildNavOrder,
   stripMoodleArtifacts,
-  liftBodyHeadings,
   labelExternalLinks,
   transformCards,
   GUIDE_TITLE,
@@ -63,8 +62,7 @@ export default async function SectionPage({
   );
 
   bodyContent = transformCards(bodyContent);
-  // stripMoodleArtifacts removes the <h2> title from the flat file
-  const promotedHtml = labelExternalLinks(liftBodyHeadings(stripMoodleArtifacts(bodyContent)));
+  const promotedHtml = labelExternalLinks(stripMoodleArtifacts(bodyContent));
 
   const navHref = `/courses/cpacc-quick-guide/${slug}/${subSlug}`;
   const idx = navOrder.findIndex(n => n.href === navHref);

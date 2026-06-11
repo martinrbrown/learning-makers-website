@@ -41,18 +41,6 @@ export function buildNavOrder(chapters: Chapter[]): NavItem[] {
 // Computed once at module load (server-side only)
 export const GUIDE_TITLE = 'CPACC Quick Guide';
 
-// Raise card-body headings by one level so they nest cleanly under the page H2 title.
-// Source H4 → rendered H3, H5 → H4, H6 → H5.
-// Process from lowest number first to prevent double-shifting.
-export function liftBodyHeadings(html: string): string {
-  return html
-    .replace(/<h4(?=[\s>])/gi, '<h3')
-    .replace(/<\/h4>/gi, '</h3>')
-    .replace(/<h5(?=[\s>])/gi, '<h4')
-    .replace(/<\/h5>/gi, '</h4>')
-    .replace(/<h6(?=[\s>])/gi, '<h5')
-    .replace(/<\/h6>/gi, '</h5>');
-}
 
 const CARD_DEFAULTS: Record<string, string> = {
   '1': 'Example',
