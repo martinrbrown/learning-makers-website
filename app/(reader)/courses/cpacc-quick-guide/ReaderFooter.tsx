@@ -22,6 +22,8 @@ export default function ReaderFooter() {
         </a>
       </p>
       <p>
+        <a href="/courses/cpacc-quick-guide/search">Search</a>
+        {' · '}
         <a href="/api/export" download="manual-export.html">Download manual (HTML)</a>
       </p>
       <p className={styles.copyright}>&copy; Learning Makers Pty Ltd 2026</p>

@@ -75,9 +75,9 @@ export const chapters: Chapter[] = [
   { slug: 'size-and-space-for-approach-and-use', title: 'Size and space for approach and use', depth: 2, parentSlug: 'universal-design', order: 7, file: '13-7-size-and-space-for-approach-and-use' },
 
   // ── Depth 2 under universal-design-for-learning ───────────────────────────
-  { slug: 'engagement-the-why-of-learning', title: 'Engagement (the â€œwhyâ€ of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 1, file: '14-1-engagement-the-why-of-learning' },
-  { slug: 'representation-the-what-of-learning', title: 'Representation (the â€œwhatâ€ of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 2, file: '14-2-representation-the-what-of-learning' },
-  { slug: 'action-the-how-of-learning', title: 'Action (the â€œhowâ€ of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 3, file: '14-3-action-the-how-of-learning' },
+  { slug: 'engagement-the-why-of-learning', title: 'Engagement (the “why” of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 1, file: '14-1-engagement-the-why-of-learning' },
+  { slug: 'representation-the-what-of-learning', title: 'Representation (the “what” of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 2, file: '14-2-representation-the-what-of-learning' },
+  { slug: 'action-the-how-of-learning', title: 'Action (the “how” of learning)', depth: 2, parentSlug: 'universal-design-for-learning', order: 3, file: '14-3-action-the-how-of-learning' },
 
   // ── Depth 1 under standards ───────────────────────────────────────────────
   { slug: 'international', title: 'International', depth: 1, parentSlug: 'standards', order: 1, file: '17-international' },

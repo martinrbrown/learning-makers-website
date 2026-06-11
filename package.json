@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/build-search-index.ts",
     "build": "next build",
+    "build:index": "tsx scripts/build-search-index.ts",
     "start": "next start"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }

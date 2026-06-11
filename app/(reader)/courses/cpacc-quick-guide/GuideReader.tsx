@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import type { Chapter } from '@/lib/guide';
+import { GUIDE_PATH } from '@/lib/constants';
 
 export default function GuideReader({
   chapters,
@@ -116,6 +117,14 @@ export default function GuideReader({
     requestAnimationFrame(() => toggleRef.current?.focus());
   }
 
+  function handleSearch(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const input = e.currentTarget.elements.namedItem('q') as HTMLInputElement;
+    const q = input.value.trim();
+    if (!q) return;
+    router.push(`${GUIDE_PATH}/search?q=${encodeURIComponent(q)}`);
+  }
+
   const sidebarAttr = isOpen !== null ? { 'data-sidebar-open': String(isOpen) } : {};
 
   return (
@@ -130,6 +139,31 @@ export default function GuideReader({
           </Link>
           <Link href={firstPageHref}>{guideTitle}</Link>
         </h1>
+        <form
+          role="search"
+          className="guide-search-form"
+          onSubmit={handleSearch}
+        >
+          <label htmlFor="guide-search-input" className="guide-search-label">
+            Search the guide
+          </label>
+          <div className="guide-search-input-row">
+            <input
+              id="guide-search-input"
+              type="search"
+              name="q"
+              className="guide-search-input"
+              placeholder="Search…"
+              autoComplete="off"
+            />
+            <button type="submit" className="guide-search-btn" aria-label="Search">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" strokeWidth="1.5" />
+                <line x1="10" y1="10" x2="14" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+        </form>
       </header>
 
       <div className="guide-body">
