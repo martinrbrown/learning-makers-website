@@ -307,6 +307,30 @@
   text-align: right;
 }
 
+/* ─── Content typography spacing ────────────────────────────────── */
+.guide-reader article p,
+.guide-reader article ul,
+.guide-reader article ol,
+.guide-reader article dl {
+  margin-block-end: 1em;
+}
+
+.guide-reader article li + li {
+  margin-block-start: 0.25em;
+}
+
+.guide-reader article h2,
+.guide-reader article h3,
+.guide-reader article h4,
+.guide-reader article h5 {
+  margin-block-start: 1.5em;
+  margin-block-end: 0.4em;
+}
+
+.guide-reader article > *:first-child {
+  margin-block-start: 0;
+}
+
 /* ─── Content body lists ─────────────────────────────────────────── */
 .guide-reader .guide-main ul:not(.section-index) {
   padding-left: 1.5rem;
