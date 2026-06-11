@@ -35,7 +35,8 @@ function readContent(chapter: Chapter): string {
   const bodyMatch = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
   const body = bodyMatch ? bodyMatch[1] : raw
   // Mirror the exact transformation order used in the reader pages
-  let html = transformCards(body)
+  let html = body.replace(/<link[^>]+rel=["']stylesheet["'][^>]*\/?>/gi, '')
+  html = transformCards(html)
   html = labelExternalLinks(stripMoodleArtifacts(html))
   return html.trim()
 }
@@ -58,7 +59,7 @@ export async function GET() {
   const sections: string[] = []
 
   for (const chapter of ordered) {
-    const sectionLevel = chapter.depth === 2 ? 3 : 2
+    const sectionLevel = chapter.depth + 2  // depth 0→h2, depth 1→h3, depth 2→h4
     const tag = `h${sectionLevel}`
     const content = readContent(chapter)
     const adjusted = adjustHeadings(content, sectionLevel)
