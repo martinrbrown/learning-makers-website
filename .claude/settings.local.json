@@ -20,7 +20,11 @@
       "Bash(rm \"public/guide-content/css/styles.css\")",
       "Bash(rmdir \"public/guide-content/css\")",
       "Bash(rm \"app/\\(site\\)/courses/KitForm.tsx\")",
-      "Bash(rm app/globals.css)"
+      "Bash(rm app/globals.css)",
+      "Bash(sort -t: -k2 -n)",
+      "Bash(grep -v \"^$\")",
+      "Bash(xargs grep -l 'src=\"')",
+      "Bash(xargs -I{} basename {})"
     ]
   }
 }

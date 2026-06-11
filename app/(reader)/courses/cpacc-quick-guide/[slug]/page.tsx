@@ -49,12 +49,6 @@ export default async function ChapterPage({
   const iconMatch = bodyContent.match(/<h2[^>]*>[\s\S]*?<img[^>]+src="([^"]+\.svg)"[^>]*>/i);
   const iconSrc = iconMatch ? `/icons/${iconMatch[1]}` : null;
 
-  // Rewrite relative image src to served path
-  bodyContent = bodyContent.replace(
-    /src="(?!https?:\/\/)([^"]+)"/g,
-    `src="/guide-content/${chapter.folder}/$1"`,
-  );
-
   bodyContent = transformCards(bodyContent);
   const intro = labelExternalLinks(stripMoodleArtifacts(bodyContent));
 

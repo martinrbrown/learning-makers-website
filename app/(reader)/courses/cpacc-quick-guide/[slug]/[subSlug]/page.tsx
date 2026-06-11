@@ -55,12 +55,6 @@ export default async function SectionPage({
   const bodyMatch = rawHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
   let bodyContent = bodyMatch ? bodyMatch[1] : rawHtml;
 
-  // Rewrite relative image src using parent chapter's folder
-  bodyContent = bodyContent.replace(
-    /src="(?!https?:\/\/)([^"]+)"/g,
-    `src="/guide-content/${chapter.folder}/$1"`,
-  );
-
   bodyContent = transformCards(bodyContent);
   const promotedHtml = labelExternalLinks(stripMoodleArtifacts(bodyContent));
 
