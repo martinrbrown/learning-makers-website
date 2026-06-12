@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { chapters, getChapter } from '@/lib/guide';
+import BodyContent from '../BodyContent';
 import {
   buildNavOrder,
   stripMoodleArtifacts,
@@ -92,7 +93,7 @@ export default async function ChapterPage({
         {chapter.title}
       </h2>
 
-      {intro && <div dangerouslySetInnerHTML={{ __html: intro }} />}
+      {intro && <BodyContent html={intro} />}
 
       {childChapters.length > 0 && (
         <ul className="section-index">

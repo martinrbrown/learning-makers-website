@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { GUIDE_PATH } from '@/lib/constants'
 
@@ -104,10 +104,11 @@ function runSearch(
 
 export default function SearchClient({ initialQuery }: { initialQuery: string }) {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const urlQuery = searchParams.get('q')?.trim() ?? ''
   const [query, setQuery] = useState(initialQuery)
   const [index, setIndex] = useState<SearchEntry[] | null>(null)
   const [results, setResults] = useState<SearchResult[] | null>(null)
-  const didAutoSearch = useRef(false)
 
   useEffect(() => {
     fetch('/search-index.json')
@@ -116,20 +117,20 @@ export default function SearchClient({ initialQuery }: { initialQuery: string })
       .catch(() => setIndex([]))
   }, [])
 
-  // Auto-search once when both the index and an initial query are available
+  // Re-run search whenever the URL's q param changes (covers both initial load
+  // and header-form navigation while already on this page)
   useEffect(() => {
-    if (index !== null && initialQuery && !didAutoSearch.current) {
-      didAutoSearch.current = true
-      setResults(runSearch(initialQuery, index))
-    }
-  }, [index, initialQuery])
+    if (index === null) return
+    if (!urlQuery) { setResults(null); return }
+    setQuery(urlQuery)
+    setResults(runSearch(urlQuery, index))
+  }, [urlQuery, index])
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const q = query.trim()
-    if (!q || index === null) return
+    if (!q) return
     router.replace(`${GUIDE_PATH}/search?q=${encodeURIComponent(q)}`, { scroll: false })
-    setResults(runSearch(q, index))
   }
 
   return (
@@ -174,7 +175,7 @@ export default function SearchClient({ initialQuery }: { initialQuery: string })
               <ul className="search-results">
                 {results.map(r => (
                   <li key={`${r.entry.url}-${r.entry.slug}`} className="search-result">
-                    <Link href={r.entry.url} className="search-result-title">
+                    <Link href={`${r.entry.url}?q=${encodeURIComponent(query)}`} className="search-result-title">
                       {r.entry.title}
                     </Link>
                     {r.entry.breadcrumb && (

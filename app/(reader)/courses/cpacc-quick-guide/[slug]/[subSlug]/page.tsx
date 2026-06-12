@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { chapters, getChapter, getSection } from '@/lib/guide';
+import BodyContent from '../../BodyContent';
 import {
   buildNavOrder,
   stripMoodleArtifacts,
@@ -83,7 +84,7 @@ export default async function SectionPage({
 
       <h2 className="guide-chapter-title">{section.title}</h2>
 
-      <div dangerouslySetInnerHTML={{ __html: promotedHtml }} />
+      <BodyContent html={promotedHtml} />
 
       <nav aria-label="Chapter navigation" className="chapter-nav">
         {prev ? (
