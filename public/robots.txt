@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.learningmakers.com/sitemap.xml
+Sitemap: https://learningmakers.com/sitemap.xml

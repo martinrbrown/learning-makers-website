@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { chapters } from '@/lib/guide'
 
-const BASE_URL = 'https://www.learningmakers.com'
+const BASE_URL = 'https://learningmakers.com'
 const TODAY = new Date('2026-06-11')
 
 export default function sitemap(): MetadataRoute.Sitemap {

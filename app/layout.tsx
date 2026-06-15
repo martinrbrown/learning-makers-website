@@ -12,6 +12,10 @@ const atkinson = Atkinson_Hyperlegible({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://learningmakers.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     template: '%s | Learning Makers',
     default: 'Learning Makers — Learning design that works for everyone',
