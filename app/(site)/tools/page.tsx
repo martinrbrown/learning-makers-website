@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const tools = [
   {
-    title: 'CPACC Companion Guide',
+    title: 'CPACC Quick Guide',
     subtitle: 'A structured reference covering the full IAAP Body of Knowledge',
     href: '/tools/cpacc-companion-guide',
     image: '/images/cpacc-guide.png',
