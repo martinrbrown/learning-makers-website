@@ -32,7 +32,7 @@ export default function ToolsPage() {
       <HeroSection
         h1="Tools for accessibility practitioners"
         subheading="Practical, openly accessible resources to support your accessibility work. No login required."
-        imageSrc="/articles.png"
+        imageSrc="/tools.png"
         imageAlt=""
         imageSize="icon"
       />
