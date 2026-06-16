@@ -15,7 +15,7 @@ export default function ReaderFooter() {
         {' or subscribe at '}
         <a
           href="https://learningmakers.com/tools#subscribe"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           LearningMakers
