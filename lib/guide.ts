@@ -6,7 +6,6 @@ export interface Guide {
 
 export const guides: Guide[] = [
   { slug: 'cpacc-quick-guide', title: 'CPACC Quick Guide', firstTopicSlug: 'about' },
-  { slug: 'test-guide', title: 'Word Import Test', firstTopicSlug: 'topic-1' },
 ]
 
 export function getGuide(slug: string): Guide | undefined {
@@ -138,12 +137,6 @@ export const chapters: Chapter[] = [
   { slug: 'legal-and-public-relations-implications', title: 'Legal & Public relations implications', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 8, file: '22-8-legal-and-public-relations-implications', guideSlug: 'cpacc-quick-guide' },
   { slug: 'purchasing-processes-and-public-procurement', title: 'Purchasing processes and public procurement', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 9, file: '22-9-purchasing-processes-and-public-procurement', guideSlug: 'cpacc-quick-guide' },
 
-  // ── test-guide ────────────────────────────────────────────────────────────
-  { guideSlug: 'test-guide', slug: 'topic-1', title: 'Topic 1', depth: 0, parentSlug: null, order: 1, file: 'test-guide/topic-1' },
-  { guideSlug: 'test-guide', slug: 'topic-2', title: 'Topic 2', depth: 0, parentSlug: null, order: 2, file: 'test-guide/topic-2' },
-  { guideSlug: 'test-guide', slug: 'topic-2a', title: 'Topic 2a', depth: 1, parentSlug: 'topic-2', order: 1, file: 'test-guide/topic-2a' },
-  { guideSlug: 'test-guide', slug: 'topic-3', title: 'Topic 3', depth: 0, parentSlug: null, order: 3, file: 'test-guide/topic-3' },
-  { guideSlug: 'test-guide', slug: 'topic-3a', title: 'Topic 3a', depth: 1, parentSlug: 'topic-3', order: 1, file: 'test-guide/topic-3a' },
 ];
 
 export function getChapter(slug: string, guideSlug: string): Chapter | undefined {
