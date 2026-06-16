@@ -63,7 +63,7 @@ export default async function ChapterPage({
     .filter(c => c.depth === 1 && c.guideSlug === guideSlug && c.parentSlug === slug)
     .sort((a, b) => a.order - b.order);
 
-  const navOrder = buildNavOrder(chapters, guideSlug);
+  const navOrder = buildNavOrder(chapters);
   const navHref = `/courses/${guideSlug}/${slug}`;
   const idx = navOrder.findIndex(n => n.href === navHref);
   const prev = idx > 0 ? navOrder[idx - 1] : null;
