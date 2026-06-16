@@ -6,7 +6,7 @@ const mainNav = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Courses', href: '/courses' },
-  { label: 'Articles', href: '/articles' },
+  { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

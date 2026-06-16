@@ -1,9 +1,9 @@
-.articles {
+.tools {
   padding: 4rem 0;
   background: var(--color-white);
 }
 
-.articleList {
+.toolList {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -27,9 +27,28 @@
   }
 }
 
-.card:hover {
+.card:not(.cardDisabled):hover {
   box-shadow: 0 4px 20px rgba(13, 92, 84, 0.1);
   transform: translateY(-2px);
+}
+
+.cardDisabled {
+  cursor: default;
+}
+
+.comingSoonBadge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal-dark);
+  background: var(--color-teal-pale);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
 }
 
 .cardImageWrap {
@@ -69,13 +88,14 @@
   inset: 0;
 }
 
-.card:hover .cardTitleLink {
+.card:not(.cardDisabled):hover .cardTitleLink {
   color: var(--color-teal-dark);
 }
 
-.cardMeta {
-  font-size: 0.875rem;
-  color: #666666;
+.cardSubtitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #555555;
 }
 
 @media (max-width: 768px) {

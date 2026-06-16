@@ -81,8 +81,8 @@ export default function HomePage() {
             Our free CPACC Quick Guide covers the full IAAP Body of Knowledge (BoK). Use it to
             prepare for your exam or as a quick reference as you apply accessibility in your work.
           </p>
-          <Link href="/courses" className="btn">
-            Explore our courses
+          <Link href="/tools" className="btn">
+            Explore our tools
           </Link>
         </div>
       </section>
