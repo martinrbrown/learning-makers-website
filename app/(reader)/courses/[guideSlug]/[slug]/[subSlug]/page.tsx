@@ -3,51 +3,49 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { chapters, getChapter, getSection } from '@/lib/guide';
+import { chapters, getChapter, getSection, getGuide } from '@/lib/guide';
 import BodyContent from '../../BodyContent';
 import {
   buildNavOrder,
   stripMoodleArtifacts,
   labelExternalLinks,
   transformCards,
-  GUIDE_TITLE,
 } from '@/lib/sections';
 
 export const dynamicParams = false;
 
-const navOrder = buildNavOrder(chapters);
-
 export function generateStaticParams() {
   return chapters
-    .filter(c => c.depth === 2)
-    .map(c => ({ slug: c.parentSlug!, subSlug: c.slug }));
+    .filter(c => c.depth >= 1 && c.parentSlug)
+    .map(c => ({ guideSlug: c.guideSlug, slug: c.parentSlug!, subSlug: c.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string; subSlug: string }>;
+  params: Promise<{ guideSlug: string; slug: string; subSlug: string }>;
 }): Promise<Metadata> {
-  const { slug, subSlug } = await params;
-  const chapter = getChapter(slug);
-  const section = getSection(slug, subSlug);
+  const { guideSlug, slug, subSlug } = await params;
+  const guideTitle = getGuide(guideSlug)?.title ?? guideSlug;
+  const chapter = getChapter(slug, guideSlug);
+  const section = getSection(slug, subSlug, guideSlug);
   return {
     title: section && chapter
-      ? `${section.title} — ${chapter.title} — ${GUIDE_TITLE}`
-      : GUIDE_TITLE,
+      ? `${section.title} — ${chapter.title} — ${guideTitle}`
+      : guideTitle,
   };
 }
 
 export default async function SectionPage({
   params,
 }: {
-  params: Promise<{ slug: string; subSlug: string }>;
+  params: Promise<{ guideSlug: string; slug: string; subSlug: string }>;
 }) {
-  const { slug, subSlug } = await params;
-  const chapter = getChapter(slug);
+  const { guideSlug, slug, subSlug } = await params;
+  const chapter = getChapter(slug, guideSlug);
   if (!chapter) notFound();
 
-  const section = getSection(slug, subSlug);
+  const section = getSection(slug, subSlug, guideSlug);
   if (!section) notFound();
 
   const contentPath = path.join(process.cwd(), 'content', `${section.file}.html`);
@@ -59,12 +57,13 @@ export default async function SectionPage({
   bodyContent = transformCards(bodyContent);
   const promotedHtml = labelExternalLinks(stripMoodleArtifacts(bodyContent));
 
-  const navHref = `/courses/cpacc-quick-guide/${slug}/${subSlug}`;
+  const navOrder = buildNavOrder(chapters, guideSlug);
+  const navHref = `/courses/${guideSlug}/${slug}/${subSlug}`;
   const idx = navOrder.findIndex(n => n.href === navHref);
   const prev = idx > 0 ? navOrder[idx - 1] : null;
   const next = idx < navOrder.length - 1 ? navOrder[idx + 1] : null;
 
-  const parentGroup = chapter.parentSlug ? getChapter(chapter.parentSlug) : null;
+  const parentGroup = chapter.parentSlug ? getChapter(chapter.parentSlug, guideSlug) : null;
 
   return (
     <article>
@@ -72,11 +71,11 @@ export default async function SectionPage({
         <ol>
           {parentGroup && (
             <li>
-              <Link href={`/courses/cpacc-quick-guide/${parentGroup.slug}`}>{parentGroup.title}</Link>
+              <Link href={`/courses/${guideSlug}/${parentGroup.slug}`}>{parentGroup.title}</Link>
             </li>
           )}
           <li>
-            <Link href={`/courses/cpacc-quick-guide/${slug}`}>{chapter.title}</Link>
+            <Link href={`/courses/${guideSlug}/${slug}`}>{chapter.title}</Link>
           </li>
           <li aria-current="page">{section.title}</li>
         </ol>
