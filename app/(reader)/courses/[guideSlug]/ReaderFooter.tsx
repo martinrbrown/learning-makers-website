@@ -14,7 +14,7 @@ export default function ReaderFooter() {
         </a>
         {' or subscribe at '}
         <a
-          href="https://www.learningmakers.com/a11y-courses#subscribe"
+          href="https://learningmakers.com/tools#subscribe"
           target="_blank"
           rel="noopener noreferrer"
         >
