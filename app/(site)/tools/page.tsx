@@ -57,12 +57,12 @@ export default function ToolsPage() {
                   </div>
                   <div className={styles.cardBody}>
                     <h2 className={styles.cardTitle}>
-                      {tool.comingSoon ? (
-                        tool.title
-                      ) : (
+                      {tool.href ? (
                         <Link href={tool.href} className={styles.cardTitleLink}>
                           {tool.title}
                         </Link>
+                      ) : (
+                        <span>{tool.title}</span>
                       )}
                     </h2>
                     <p className={styles.cardSubtitle}>{tool.subtitle}</p>
