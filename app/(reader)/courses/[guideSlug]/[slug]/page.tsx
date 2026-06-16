@@ -3,41 +3,41 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { chapters, getChapter } from '@/lib/guide';
+import { chapters, getChapter, getGuide } from '@/lib/guide';
 import BodyContent from '../BodyContent';
 import {
   buildNavOrder,
   stripMoodleArtifacts,
   labelExternalLinks,
   transformCards,
-  GUIDE_TITLE,
 } from '@/lib/sections';
 
 export const dynamicParams = false;
 
-const navOrder = buildNavOrder(chapters);
-
 export function generateStaticParams() {
-  return chapters.filter(c => c.depth < 2).map(c => ({ slug: c.slug }));
+  return chapters
+    .filter(c => c.depth < 2)
+    .map(c => ({ guideSlug: c.guideSlug, slug: c.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ guideSlug: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const chapter = getChapter(slug);
-  return { title: chapter ? `${chapter.title} — ${GUIDE_TITLE}` : GUIDE_TITLE };
+  const { guideSlug, slug } = await params;
+  const guideTitle = getGuide(guideSlug)?.title ?? guideSlug;
+  const chapter = getChapter(slug, guideSlug);
+  return { title: chapter ? `${chapter.title} — ${guideTitle}` : guideTitle };
 }
 
 export default async function ChapterPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ guideSlug: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const chapter = getChapter(slug);
+  const { guideSlug, slug } = await params;
+  const chapter = getChapter(slug, guideSlug);
   if (!chapter) notFound();
 
   const contentPath = path.join(process.cwd(), 'content', `${chapter.file}.html`);
@@ -55,20 +55,21 @@ export default async function ChapterPage({
 
   // Depth-2 sections for this topic page
   const sections = chapters
-    .filter(c => c.depth === 2 && c.parentSlug === slug)
+    .filter(c => c.depth === 2 && c.guideSlug === guideSlug && c.parentSlug === slug)
     .sort((a, b) => a.order - b.order);
 
   // Depth-1 children for group pages
   const childChapters = chapters
-    .filter(c => c.depth === 1 && c.parentSlug === slug)
+    .filter(c => c.depth === 1 && c.guideSlug === guideSlug && c.parentSlug === slug)
     .sort((a, b) => a.order - b.order);
 
-  const navHref = `/courses/cpacc-quick-guide/${slug}`;
+  const navOrder = buildNavOrder(chapters, guideSlug);
+  const navHref = `/courses/${guideSlug}/${slug}`;
   const idx = navOrder.findIndex(n => n.href === navHref);
   const prev = idx > 0 ? navOrder[idx - 1] : null;
   const next = idx < navOrder.length - 1 ? navOrder[idx + 1] : null;
 
-  const parentGroup = chapter.parentSlug ? getChapter(chapter.parentSlug) : null;
+  const parentGroup = chapter.parentSlug ? getChapter(chapter.parentSlug, guideSlug) : null;
 
   return (
     <article>
@@ -77,7 +78,7 @@ export default async function ChapterPage({
           <ol>
             {parentGroup && (
               <li>
-                <Link href={`/courses/cpacc-quick-guide/${parentGroup.slug}`}>{parentGroup.title}</Link>
+                <Link href={`/courses/${guideSlug}/${parentGroup.slug}`}>{parentGroup.title}</Link>
               </li>
             )}
             <li aria-current="page">{chapter.title}</li>
@@ -99,7 +100,7 @@ export default async function ChapterPage({
         <ul className="section-index">
           {childChapters.map(c => (
             <li key={c.slug}>
-              <Link href={`/courses/cpacc-quick-guide/${c.slug}`}>{c.title}</Link>
+              <Link href={`/courses/${guideSlug}/${c.slug}`}>{c.title}</Link>
             </li>
           ))}
         </ul>
@@ -109,7 +110,7 @@ export default async function ChapterPage({
         <ul className="section-index">
           {sections.map(s => (
             <li key={s.file}>
-              <Link href={`/courses/cpacc-quick-guide/${slug}/${s.slug}`}>{s.title}</Link>
+              <Link href={`/courses/${guideSlug}/${slug}/${s.slug}`}>{s.title}</Link>
             </li>
           ))}
         </ul>

@@ -1,0 +1,30 @@
+.footer {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1rem 1.5rem;
+  background: #e6eeee;
+  border: 1px solid #c2d6d4;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.footer p + p {
+  margin-top: 0.25rem;
+}
+
+.footer a {
+  color: #7a0039;
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  text-decoration: none;
+}
+
+.copyright {
+  color: #555555;
+  margin-top: 0.5rem;
+}
