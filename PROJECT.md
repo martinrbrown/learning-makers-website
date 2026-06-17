@@ -113,3 +113,15 @@ All copy follows the Learning Makers Style Guide (based on the Australian Govern
 ## Development workflow
 
 Claude Code (via VS Code terminal on Windows/PowerShell) handles layout, components, new features, and image placement. Martin handles text edits directly in page files, image drops into `public/images/`, and manual Git commits via VS Code Source Control. Claude Code prompts should be comprehensive and batched where possible.
+
+## Reader (Includl)
+
+The Includl Reader is embedded in this repo at `/courses/[guideSlug]/`. It is a static, database-free guide reader — content lives as HTML files in `content/`, structure and routing are defined in `lib/guide.ts`.
+
+**Current state:** CPACC Quick Guide live at `/courses/cpacc-quick-guide`. Multi-guide dynamic route built but not yet active — live site still served from hardcoded `app/(reader)/courses/cpacc-quick-guide/` folder.
+
+**Content pipeline:** Word `.docx` → `import-word.js` (in `includl` repo) → HTML files → copied to `content/[guide-slug]/` here via `publish-guide.js`.
+
+**Key constraint:** Any CSS changes to the Reader must be made in both `reader.css` files until the hardcoded route is removed.
+
+**Do not:** add a database, CMS, or CSS framework to the Reader. Plain CSS only. WAVE triple zero is the accessibility baseline — never regress from it.
