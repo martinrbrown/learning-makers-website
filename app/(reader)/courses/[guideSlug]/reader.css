@@ -450,7 +450,7 @@
 .guide-reader .card-2 .card-header { background-color: #e6eeee; color: #0d5c54; }
 .guide-reader .card-2 .card-body { background-color: #f3f7f6; }
 
-/* card-3: Insight — border #002060, header bg #E5E8EF, header text #002060, body bg #F5F5F5 */
+/* card-3: Alert — border #002060, header bg #E5E8EF, header text #002060, body bg #F5F5F5 */
 .guide-reader .card-3 { border-color: #002060; }
 .guide-reader .card-3 .card-header { background-color: #e5e8ef; color: #002060; }
 .guide-reader .card-3 .card-body { background-color: #f5f5f5; }
