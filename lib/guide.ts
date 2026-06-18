@@ -6,7 +6,6 @@ export interface Guide {
 
 export const guides: Guide[] = [
   { slug: 'cpacc-quick-guide', title: 'CPACC Quick Guide', firstTopicSlug: 'about' },
-  { slug: 'test-guide', title: 'Guide Title', firstTopicSlug: 'about' },
 ]
 
 export function getGuide(slug: string): Guide | undefined {
