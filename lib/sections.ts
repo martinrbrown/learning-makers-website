@@ -17,21 +17,22 @@ export function stripMoodleArtifacts(html: string): string {
 }
 
 // Build the flat sequential navigation order for all depths, sorted by order field
-export function buildNavOrder(chapters: Chapter[]): NavItem[] {
+export function buildNavOrder(chapters: Chapter[], guideSlug: string): NavItem[] {
+  const guide = chapters.filter(c => c.guideSlug === guideSlug);
   const items: NavItem[] = [];
-  const roots = chapters.filter(c => c.depth === 0).sort((a, b) => a.order - b.order);
+  const roots = guide.filter(c => c.depth === 0).sort((a, b) => a.order - b.order);
   for (const root of roots) {
-    items.push({ href: `/courses/cpacc-quick-guide/${root.slug}`, title: root.title });
-    const topics = chapters
+    items.push({ href: `/courses/${guideSlug}/${root.slug}`, title: root.title });
+    const topics = guide
       .filter(c => c.depth === 1 && c.parentSlug === root.slug)
       .sort((a, b) => a.order - b.order);
     for (const topic of topics) {
-      items.push({ href: `/courses/cpacc-quick-guide/${topic.slug}`, title: topic.title });
-      const sections = chapters
+      items.push({ href: `/courses/${guideSlug}/${topic.slug}`, title: topic.title });
+      const sections = guide
         .filter(c => c.depth === 2 && c.parentSlug === topic.slug)
         .sort((a, b) => a.order - b.order);
       for (const section of sections) {
-        items.push({ href: `/courses/cpacc-quick-guide/${topic.slug}/${section.slug}`, title: section.title });
+        items.push({ href: `/courses/${guideSlug}/${topic.slug}/${section.slug}`, title: section.title });
       }
     }
   }

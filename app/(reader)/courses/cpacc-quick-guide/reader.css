@@ -419,6 +419,15 @@
   padding-left: 1.5rem;
 }
 
+/* ─── Blockquotes ─────────────────────────────────────────────── */
+.guide-reader article blockquote {
+  border-left: 4px solid #0d5c54;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #444;
+  font-size: 0.95em;
+}
+
 /* ─── Cards / callouts ─────────────────────────────────────────── */
 .guide-reader .card {
   border-left: 4px solid;

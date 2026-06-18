@@ -2,10 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import { chapters } from '../lib/guide'
 import { stripMoodleArtifacts } from '../lib/sections'
-import { GUIDE_PATH } from '../lib/constants'
-
 interface SearchEntry {
   slug: string
+  guideSlug: string
   title: string
   url: string
   breadcrumb: string
@@ -18,20 +17,21 @@ function stripTags(html: string): string {
 
 function buildUrl(chapter: typeof chapters[number]): string {
   if (chapter.depth === 2) {
-    return `${GUIDE_PATH}/${chapter.parentSlug}/${chapter.slug}`
+    return `/courses/${chapter.guideSlug}/${chapter.parentSlug}/${chapter.slug}`
   }
-  return `${GUIDE_PATH}/${chapter.slug}`
+  return `/courses/${chapter.guideSlug}/${chapter.slug}`
 }
 
 function buildBreadcrumb(chapter: typeof chapters[number]): string {
   if (chapter.depth === 0) return ''
+  const guide = chapters.filter(c => c.guideSlug === chapter.guideSlug)
   if (chapter.depth === 1) {
-    const parent = chapters.find(c => c.slug === chapter.parentSlug)
+    const parent = guide.find(c => c.slug === chapter.parentSlug)
     return parent?.title ?? ''
   }
   // depth 2
-  const parent = chapters.find(c => c.slug === chapter.parentSlug)
-  const grandparent = parent ? chapters.find(c => c.slug === parent.parentSlug) : null
+  const parent = guide.find(c => c.slug === chapter.parentSlug)
+  const grandparent = parent ? guide.find(c => c.slug === parent.parentSlug) : null
   const parts: string[] = []
   if (grandparent) parts.push(grandparent.title)
   if (parent) parts.push(parent.title)
@@ -49,6 +49,7 @@ for (const chapter of chapters) {
 
   entries.push({
     slug: chapter.slug,
+    guideSlug: chapter.guideSlug,
     title: chapter.title,
     url: buildUrl(chapter),
     breadcrumb: buildBreadcrumb(chapter),

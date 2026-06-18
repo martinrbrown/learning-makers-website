@@ -57,7 +57,7 @@ export default async function SectionPage({
   bodyContent = transformCards(bodyContent);
   const promotedHtml = labelExternalLinks(stripMoodleArtifacts(bodyContent));
 
-  const navOrder = buildNavOrder(chapters);
+  const navOrder = buildNavOrder(chapters, guideSlug);
   const navHref = `/courses/${guideSlug}/${slug}/${subSlug}`;
   const idx = navOrder.findIndex(n => n.href === navHref);
   const prev = idx > 0 ? navOrder[idx - 1] : null;

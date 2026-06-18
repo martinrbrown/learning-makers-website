@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { GUIDE_PATH } from '@/lib/constants'
 
 interface SearchEntry {
   slug: string
+  guideSlug: string
   title: string
   url: string
   breadcrumb: string
@@ -105,6 +105,8 @@ function runSearch(
 export default function SearchClient({ initialQuery }: { initialQuery: string }) {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const guideSlug = pathname.split('/').find((_, i, arr) => arr[i - 1] === 'courses') ?? ''
   const urlQuery = searchParams.get('q')?.trim() ?? ''
   const [query, setQuery] = useState(initialQuery)
   const [index, setIndex] = useState<SearchEntry[] | null>(null)
@@ -113,9 +115,9 @@ export default function SearchClient({ initialQuery }: { initialQuery: string })
   useEffect(() => {
     fetch('/search-index.json')
       .then(r => r.json())
-      .then((data: SearchEntry[]) => setIndex(data))
+      .then((data: SearchEntry[]) => setIndex(data.filter(e => e.guideSlug === guideSlug)))
       .catch(() => setIndex([]))
-  }, [])
+  }, [guideSlug])
 
   // Re-run search whenever the URL's q param changes (covers both initial load
   // and header-form navigation while already on this page)
@@ -130,7 +132,7 @@ export default function SearchClient({ initialQuery }: { initialQuery: string })
     e.preventDefault()
     const q = query.trim()
     if (!q) return
-    router.replace(`${GUIDE_PATH}/search?q=${encodeURIComponent(q)}`, { scroll: false })
+    router.replace(`/courses/${guideSlug}/search?q=${encodeURIComponent(q)}`, { scroll: false })
   }
 
   return (
