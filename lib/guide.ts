@@ -137,10 +137,6 @@ export const chapters: Chapter[] = [
   { slug: 'legal-and-public-relations-implications', title: 'Legal & Public relations implications', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 8, file: '22-8-legal-and-public-relations-implications', guideSlug: 'cpacc-quick-guide' },
   { slug: 'purchasing-processes-and-public-procurement', title: 'Purchasing processes and public procurement', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 9, file: '22-9-purchasing-processes-and-public-procurement', guideSlug: 'cpacc-quick-guide' },
 
-  { slug: 'about', title: 'About', depth: 0, parentSlug: null, order: 1, file: 'test-guide/about', guideSlug: 'test-guide' },
-  { slug: 'how-to-use-this-guide', title: 'How to use this guide', depth: 1, parentSlug: 'about', order: 1, file: 'test-guide/how-to-use-this-guide', guideSlug: 'test-guide' },
-  { slug: 'first-topic', title: 'First topic', depth: 0, parentSlug: null, order: 2, file: 'test-guide/first-topic', guideSlug: 'test-guide' },
-  { slug: 'subtopic', title: 'Subtopic', depth: 1, parentSlug: 'first-topic', order: 1, file: 'test-guide/subtopic', guideSlug: 'test-guide' },
 ];
 
 export function getChapter(slug: string, guideSlug: string): Chapter | undefined {
