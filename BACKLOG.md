@@ -4,21 +4,22 @@
 
 _Nothing currently active._
 
-## Reader / Includl technical debt
+## Ready — do next session
 
-### ⚠️ Duplicate CPACC reader route
-Two parallel route folders exist in `app/(reader)/courses/`:
-- `cpacc-quick-guide/` — hardcoded legacy route, currently serving the live site (Next.js prefers this over the dynamic route)
-- `[guideSlug]/` — new multi-guide dynamic route, fully built but not yet active
+### Auto-copy images in publish-guide.js
+`publish-guide.js` prints a manual image checklist but does not copy files.
+Add an automatic copy step: after HTML files are copied, copy all files from
+`word-imports/media/` to `learning-makers-website/public/images/[guideSlug]/`.
+Print confirmation of each file copied. Skip silently if media folder is empty.
+(Tracked in includl backlog — implement there, no changes needed here.)
 
-The live site is still running from the hardcoded folder. Before publishing a second guide, the hardcoded route must be removed and the dynamic route must take over.
+### Fix hardcoded guide in export route
+`app/api/export/route.ts` calls `getGuide('cpacc-quick-guide')` — hardcoded.
+Must be made dynamic before a second guide is published.
 
-Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working end-to-end.
-
-### Two reader.css files
-`app/(reader)/courses/cpacc-quick-guide/reader.css` and `app/(reader)/courses/[guideSlug]/reader.css` must be kept in sync until the hardcoded route is removed. Any CSS changes must be made in both files.
-
-## Up next
+### Dead code cleanup — lib/constants.ts
+`GUIDE_PATH` is still exported but only consumed by one marketing page link.
+Low priority — remove when convenient.
 
 ## Backlog — website
 
@@ -28,7 +29,8 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 
 - Rework and reposition the CPACC Quick Guide as "The Australian L&D Accessibility Guide"
   - Broaden audience: higher education, VET, corporate L&D
-  - Add Australian compliance domain: DDA, Disability Standards for Education, RTO Standards, ASQA guidance, AS EN 301 549
+  - Add Australian compliance domain: DDA, Disability Standards for Education,
+    RTO Standards, ASQA guidance, AS EN 301 549
   - Work in progress in dedicated Claude project
 - Build Accessibility Testing and Auditing Course (first paid course)
   - Build for Martin's own learning first
@@ -50,11 +52,17 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 
 ## Done
 
+- [x] Dynamic route switchover — hardcoded `cpacc-quick-guide/` folder deleted,
+      `[guideSlug]/` is now the only route. Search moved to `[guideSlug]/search/`
+      and made fully dynamic. Single `reader.css` — duplicate removed.
+      WAVE triple zero confirmed, deployed to production.
+- [x] `GUIDE_TITLE` constant removed from `lib/sections.ts`
 - [x] Homepage — copy, hero image, CTAs
 - [x] Services page — 3 services (Co-design, Capacity building, Accessibility and inclusion)
 - [x] About page — Martin and Kirsty bios
 - [x] Courses page — Accessibility Testing and Auditing Course (coming soon)
-- [x] Tools page — repurposed from Articles; CPACC Quick Guide card + coming-soon Accessibility Testing Guide card
+- [x] Tools page — repurposed from Articles; CPACC Quick Guide card + coming-soon
+      Accessibility Testing Guide card
 - [x] CPACC Quick Guide landing page at `/tools/cpacc-quick-guide`
 - [x] Contact page
 - [x] Privacy statement
@@ -68,9 +76,15 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 - [x] CPACC Quick Guide live on Moodle (open access, accordion structure, ~10,000 words)
 - [x] LinkedIn first post live
 - [x] IAAP provider enquiry sent
-- [x] x-card cleanup — all `<x-card>` custom elements replaced with `<div class="card card-N">` structure across 65 content files. WAVE triple zero confirmed.
+- [x] x-card cleanup — all `<x-card>` custom elements replaced with
+      `<div class="card card-N">` structure across 65 content files.
+      WAVE triple zero confirmed.
 - [x] Deleted one-use `replace-x-cards.js` script from root.
-- [x] Multi-guide readiness — search scoping, nav debt, blockquote styling, duplicate title fix. buildNavOrder and SearchClient now guide-scoped. Search index rebuilt (82 entries).
-- [x] Replace `/public/articles.png` hero icon with a purpose-built tools icon on the Tools page
-- [x] Update the CPACC Quick Guide footer link from `/a11y-courses#subscribe` to `/tools#subscribe`
+- [x] Multi-guide readiness — search scoping, nav debt, blockquote styling,
+      duplicate title fix. buildNavOrder and SearchClient now guide-scoped.
+      Search index rebuilt (82 entries).
+- [x] Replace `/public/articles.png` hero icon with a purpose-built tools icon
+      on the Tools page
+- [x] Update the CPACC Quick Guide footer link from `/a11y-courses#subscribe`
+      to `/tools#subscribe`
 - [x] Conduct accessibility audit of Tools section (WAVE) following restructure

@@ -2,13 +2,18 @@
 
 ## The business
 
-Learning Makers is a boutique instructional design and accessibility consultancy operated by Martin Brown and Kirsty Brown from Melbourne, Australia. Martin holds the IAAP CPACC credential and is a professional member of IAAP. The business is on a semi-retirement trajectory — the goal is sustainable, low-overhead income, not scale.
+Learning Makers is a boutique instructional design and accessibility consultancy
+operated by Martin Brown and Kirsty Brown from Melbourne, Australia. Martin holds
+the IAAP CPACC credential and is a professional member of IAAP. The business is on
+a semi-retirement trajectory — the goal is sustainable, low-overhead income, not scale.
 
 **Target sectors:** government, education and training, and not-for-profit organisations
 
 **Two audiences served from one website:**
-- Consulting clients — organisations needing instructional design expertise with an accessibility focus
-- Accessibility practitioners — professionals building or certifying their accessibility knowledge
+- Consulting clients — organisations needing instructional design expertise with
+  an accessibility focus
+- Accessibility practitioners — professionals building or certifying their
+  accessibility knowledge
 
 ## Stack
 
@@ -23,21 +28,28 @@ Learning Makers is a boutique instructional design and accessibility consultancy
 | Course delivery | Moodle (courses.learningmakers.com) |
 | Analytics | Vercel Analytics |
 | Font | Atkinson Hyperlegible |
-| Content | Markdown files / hardcoded in page files |
+| Content | HTML files in `content/[guideSlug]/`; hardcoded in page files elsewhere |
 
 ## Site structure
-
-```
 /                          Homepage
+
 /services                  Services (Co-design, Capacity building, Accessibility and inclusion)
+
 /tools                     Tools index (card-based, repurposed from /articles)
+
 /tools/cpacc-quick-guide   CPACC Quick Guide landing page
+
 /courses                   Courses index
+
+/courses/[guideSlug]       Reader — dynamic route serving all guides
+
 /about                     About (Martin and Kirsty bios)
+
 /contact                   Contact
+
 /privacy                   Privacy statement
+
 /accessibility             Accessibility statement
-```
 
 ## Navigation
 
@@ -68,7 +80,8 @@ Coming-soon cards are non-clickable and display a "Coming soon" badge.
   - Subtitle: A practical guide to accessibility testing and auditing methods
 
 Newsletter sign-up anchor on Tools page: `/tools#subscribe`
-(Previously `/a11y-courses#subscribe` — update any external references, including the CPACC Quick Guide footer)
+(Previously `/a11y-courses#subscribe` — update any external references, including
+the CPACC Quick Guide footer)
 
 ## Courses
 
@@ -80,7 +93,8 @@ Card-based index at `/courses`.
 ## Key components
 
 - `NewsletterSignup` — MailerLite embed, renders automatically site-wide via layout
-- Tool card component — shared card showing thumbnail | title | subtitle; coming-soon cards are non-clickable with badge
+- Tool card component — shared card showing thumbnail | title | subtitle;
+  coming-soon cards are non-clickable with badge
 
 ## Brand
 
@@ -96,7 +110,8 @@ Card-based index at `/courses`.
 
 ## Content rules
 
-All copy follows the Learning Makers Style Guide (based on the Australian Government Style Manual). Key rules:
+All copy follows the Learning Makers Style Guide (based on the Australian Government
+Style Manual). Key rules:
 - Australian English throughout (Macquarie Dictionary, first listed spelling)
 - Sentence case for all headings
 - No serial comma except where omitting it creates ambiguity
@@ -108,20 +123,36 @@ All copy follows the Learning Makers Style Guide (based on the Australian Govern
 
 - Australian Privacy Act compliant
 - GST registered — Stripe Tax handles digital goods compliance
-- WCAG compliance by construction — known MailerLite embed limitation documented in Accessibility Statement
+- WCAG compliance by construction — known MailerLite embed limitation documented
+  in Accessibility Statement
 
 ## Development workflow
 
-Claude Code (via VS Code terminal on Windows/PowerShell) handles layout, components, new features, and image placement. Martin handles text edits directly in page files, image drops into `public/images/`, and manual Git commits via VS Code Source Control. Claude Code prompts should be comprehensive and batched where possible.
+Claude Code (via VS Code terminal on Windows/PowerShell) handles layout, components,
+new features, and image placement. Martin handles text edits directly in page files,
+image drops into `public/images/`, and manual Git commits via VS Code Source Control.
+Claude Code prompts should be comprehensive and batched where possible.
 
 ## Reader (Includl)
 
-The Includl Reader is embedded in this repo at `/courses/[guideSlug]/`. It is a static, database-free guide reader — content lives as HTML files in `content/`, structure and routing are defined in `lib/guide.ts`.
+The Includl Reader is embedded in this repo at `/courses/[guideSlug]/`. It is a
+static, database-free guide reader — content lives as HTML files in
+`content/[guideSlug]/`, structure and routing are defined in `lib/guide.ts`.
 
-**Current state:** CPACC Quick Guide live at `/courses/cpacc-quick-guide`. Multi-guide dynamic route built but not yet active — live site still served from hardcoded `app/(reader)/courses/cpacc-quick-guide/` folder.
+**Current state:** CPACC Quick Guide live at `/courses/cpacc-quick-guide`. Dynamic
+route is now the only route — hardcoded `cpacc-quick-guide/` folder has been deleted.
+Multi-guide publishing is fully operational.
 
-**Content pipeline:** Word `.docx` → `import-word.js` (in `includl` repo) → HTML files → copied to `content/[guide-slug]/` here via `publish-guide.js`.
+**Content pipeline:** Word `.docx` → `import-word.js` (in `includl` repo) →
+HTML files + `_chapters.json` + `_guide.json` → copied to `content/[guide-slug]/`
+and auto-appended to `lib/guide.ts` via `publish-guide.js`. One `reader.css` file
+at `app/(reader)/courses/[guideSlug]/reader.css`.
 
-**Key constraint:** Any CSS changes to the Reader must be made in both `reader.css` files until the hardcoded route is removed.
+**Known debt:**
+- `app/api/export/route.ts` — `getGuide('cpacc-quick-guide')` is hardcoded;
+  must be made dynamic before a second guide is published
+- `lib/constants.ts` — `GUIDE_PATH` exported but only used by one marketing page;
+  low priority cleanup
 
-**Do not:** add a database, CMS, or CSS framework to the Reader. Plain CSS only. WAVE triple zero is the accessibility baseline — never regress from it.
+**Do not:** add a database, CMS, or CSS framework to the Reader. Plain CSS only.
+WAVE triple zero is the accessibility baseline — never regress from it.
