@@ -11,7 +11,7 @@ Two parallel route folders exist in `app/(reader)/courses/`:
 - `cpacc-quick-guide/` — hardcoded legacy route, currently serving the live site (Next.js prefers this over the dynamic route)
 - `[guideSlug]/` — new multi-guide dynamic route, fully built but not yet active
 
-The live site is still running from the hardcoded folder. Before publishing a second guide, the hardcoded route must be removed and the dynamic route must take over. This requires verifying `lib/sections.ts` signature mismatch (see includl backlog item 4) is resolved first.
+The live site is still running from the hardcoded folder. Before publishing a second guide, the hardcoded route must be removed and the dynamic route must take over.
 
 Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working end-to-end.
 
@@ -74,3 +74,4 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 - [x] IAAP provider enquiry sent
 - [x] x-card cleanup — all `<x-card>` custom elements replaced with `<div class="card card-N">` structure across 65 content files. WAVE triple zero confirmed.
 - [x] Deleted one-use `replace-x-cards.js` script from root.
+- [x] Multi-guide readiness — search scoping, nav debt, blockquote styling, duplicate title fix. buildNavOrder and SearchClient now guide-scoped. Search index rebuilt (82 entries).
