@@ -20,12 +20,8 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 
 ## Up next
 
-- Update the CPACC Quick Guide footer link from `/a11y-courses#subscribe` to `/tools#subscribe`
-- Conduct accessibility audit of Tools section (WAVE) following restructure
-
 ## Backlog — website
 
-- Replace `/public/articles.png` hero icon with a purpose-built tools icon on the Tools page
 - Review and update sitemap / robots.txt if needed following Articles → Tools restructure
 
 ## Backlog — content and product
@@ -75,3 +71,6 @@ Do not delete `cpacc-quick-guide/` until the dynamic route is confirmed working 
 - [x] x-card cleanup — all `<x-card>` custom elements replaced with `<div class="card card-N">` structure across 65 content files. WAVE triple zero confirmed.
 - [x] Deleted one-use `replace-x-cards.js` script from root.
 - [x] Multi-guide readiness — search scoping, nav debt, blockquote styling, duplicate title fix. buildNavOrder and SearchClient now guide-scoped. Search index rebuilt (82 entries).
+- [x] Replace `/public/articles.png` hero icon with a purpose-built tools icon on the Tools page
+- [x] Update the CPACC Quick Guide footer link from `/a11y-courses#subscribe` to `/tools#subscribe`
+- [x] Conduct accessibility audit of Tools section (WAVE) following restructure
