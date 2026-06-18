@@ -1,9 +1,15 @@
 import type { Metadata } from 'next'
-import { GUIDE_TITLE } from '@/lib/sections'
+import { getGuide } from '@/lib/guide'
 import SearchClient from './SearchClient'
 
-export const metadata: Metadata = {
-  title: `Search — ${GUIDE_TITLE}`,
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ guideSlug: string }>
+}): Promise<Metadata> {
+  const { guideSlug } = await params
+  const guideTitle = getGuide(guideSlug)?.title ?? guideSlug
+  return { title: `Search — ${guideTitle}` }
 }
 
 export default async function SearchPage({

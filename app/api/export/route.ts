@@ -7,8 +7,8 @@ import {
   stripMoodleArtifacts,
   transformCards,
   labelExternalLinks,
-  GUIDE_TITLE,
 } from '@/lib/sections'
+import { getGuide } from '@/lib/guide'
 
 function buildReadingOrder(chaps: Chapter[]): Chapter[] {
   const result: Chapter[] = []
@@ -55,6 +55,7 @@ function adjustHeadings(html: string, sectionLevel: number): string {
 }
 
 export async function GET() {
+  const guideTitle = getGuide('cpacc-quick-guide')?.title ?? 'CPACC Quick Guide'
   const ordered = buildReadingOrder(chapters)
   const sections: string[] = []
 
@@ -71,7 +72,7 @@ export async function GET() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${GUIDE_TITLE}</title>
+  <title>${guideTitle}</title>
   <style>
     /* minimal print-friendly styles */
     body { font-family: Georgia, serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
@@ -84,7 +85,7 @@ export async function GET() {
   </style>
 </head>
 <body>
-  <h1>${GUIDE_TITLE}</h1>
+  <h1>${guideTitle}</h1>
   ${sections.join('\n')}
 </body>
 </html>`

@@ -39,10 +39,6 @@ export function buildNavOrder(chapters: Chapter[], guideSlug: string): NavItem[]
   return items;
 }
 
-// Computed once at module load (server-side only)
-export const GUIDE_TITLE = 'CPACC Quick Guide';
-
-
 const CARD_DEFAULTS: Record<string, string> = {
   '1': 'Example',
   '2': 'Key point',
