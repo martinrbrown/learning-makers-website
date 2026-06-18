@@ -136,7 +136,7 @@ export const chapters: Chapter[] = [
   { slug: 'communication-management-strategies', title: 'Communication management strategies', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 7, file: '22-7-communication-management-strategies', guideSlug: 'cpacc-quick-guide' },
   { slug: 'legal-and-public-relations-implications', title: 'Legal & Public relations implications', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 8, file: '22-8-legal-and-public-relations-implications', guideSlug: 'cpacc-quick-guide' },
   { slug: 'purchasing-processes-and-public-procurement', title: 'Purchasing processes and public procurement', depth: 2, parentSlug: 'integrating-ict-accessibility', order: 9, file: '22-9-purchasing-processes-and-public-procurement', guideSlug: 'cpacc-quick-guide' },
-
+]
 
 
 export function getChapter(slug: string, guideSlug: string): Chapter | undefined {
