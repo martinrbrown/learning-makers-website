@@ -5,19 +5,19 @@ import styles from './page.module.css'
 
 const services = [
   {
+    title: 'Accessibility audit',
+    description:
+      'A plain English report on your top accessibility issues, with prioritised recommendations. Fixed price. Ready in 2–3 business days.',
+  },
+  {
     title: 'Co-design',
     description:
-      'We plan and design alongside subject matter experts and people with lived experience, aligning with your goals and objectives.',
+      'Accessible learning experiences and digital content built right from the start, not retrofitted.',
   },
   {
     title: 'Capacity building',
     description:
-      'We build the accessibility capability of your L&D team through training, coaching and mentoring.',
-  },
-  {
-    title: 'Accessibility & inclusion',
-    description:
-      'We help you design, review and improve learning experiences that work for everyone.',
+      'Practical workshops and frameworks that make accessibility a shared practice across your team.',
   },
 ]
 
@@ -54,10 +54,10 @@ export default function HomePage() {
       <section className={styles.servicesSection} aria-labelledby="services-heading">
         <div className="container">
           <h2 id="services-heading" className={styles.sectionHeading}>
-            Our services
+            What we do
           </h2>
           <p className={styles.sectionIntro}>
-            End-to-end instructional design with accessibility at the centre — not added at the end.
+            Accessibility expertise across auditing, co-design and capability building.
           </p>
           <div className={styles.cardsGrid}>
             {services.map((service) => (

@@ -6,7 +6,23 @@ import styles from './services.module.css'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'We work with education, health, and not-for-profit organisations to design learning that is accessible, effective, and built to last.',
+    'Learning Makers helps Australian for-purpose organisations make their digital presence accessible. We audit websites, build internal capability and provide practical guidance.',
+}
+
+const audit = {
+  id: 'accessibility-audit',
+  title: 'Accessibility audit',
+  intro: 'The fastest way to know where your website stands. We assess your homepage and 2 key user flows or pages and deliver a plain English report with prioritised, actionable recommendations.',
+  body: 'The report is written to share with your web team, a contractor or your board without us in the room.',
+  bullets: [
+    'Assessment of your homepage and 2 key pages or user flows',
+    'Plain English report identifying your top accessibility issues',
+    'Prioritised recommendations you, or your web team, can act on',
+    'Coverage of the issues automated tools miss: caption quality, plain language, focus management and mobile usability',
+  ],
+  timeframe: '2–3 business days',
+  price: 'A$1,200 fixed',
+  followOn: 'Need help acting on the report? Follow-on support is available at A$150/hr.',
 }
 
 const services = [
@@ -14,40 +30,13 @@ const services = [
     id: 'co-design',
     title: 'Co-design',
     intro:
-      'Good learning starts with the right people in the room. We plan and design alongside subject matter experts, stakeholders and people with lived experience. This approach aligns learning solutions with your organisational goals and the real needs of your learners.',
-    bullets: [
-      'Learning needs analysis and audience profiling',
-      'Learning architecture and course structure',
-      'Co-design workshops with subject matter experts',
-      'Content development and storyboarding',
-      'Review and iteration cycles built into the process',
-    ],
+      'We work with organisations to design learning experiences and digital content that are accessible by intent, not as an afterthought. If your team is building something new, we can help you get the foundations right.',
   },
   {
     id: 'capacity-building',
     title: 'Capacity building',
     intro:
-      "We build your organisation's accessibility capability so your team can create and maintain inclusive learning independently. We don't simply deliver a product and leave. Through training, coaching and mentoring, we help your people develop the confidence and skills to make accessibility part of how they work.",
-    bullets: [
-      'Accessibility awareness training for L&D teams and content authors',
-      'Training for learning designers on accessible content design principles',
-      'One-on-one coaching and mentoring for learning designers',
-      'Structured capability uplift programs for teams new to accessible design',
-    ],
-  },
-  {
-    id: 'accessibility-inclusion',
-    title: 'Accessibility and inclusion',
-    intro:
-      'We specialise in accessible and inclusive learning design for government, education and training, and not-for-profit organisations. Accessibility is not a feature we add at the end. It is the lens through which we approach every design decision — and the standard we apply when reviewing or auditing what already exists.',
-    bullets: [
-      'Accessibility reviews and audits of existing eLearning content and documents',
-      'Remediation of inaccessible content, including documents and interactive activities',
-      'WCAG 2.x AA(A) compliance review and reporting',
-      'Accessible document design (Word, PDF, PowerPoint)',
-      'Accessibility statement development',
-      'Inclusive design consultation for new learning projects',
-    ],
+      "Accessibility knowledge shouldn't sit with one person. We help teams build shared understanding through workshops, internal guides and practical frameworks. So, accessibility becomes a standing practice, not a project task.",
   },
 ]
 
@@ -55,19 +44,49 @@ export default function ServicesPage() {
   return (
     <>
       <HeroSection
-        h1="Services"
-        subheading="We work with government, education and training, and not-for-profit organisations to design learning that is accessible, effective and built to last."
+        h1="Accessibility services"
+        subheading="Learning Makers helps Australian for-purpose organisations make their digital presence accessible. We audit websites, build internal capability and provide practical guidance. We are grounded in sector knowledge and hands-on accessibility expertise."
         imageSrc="/services.png"
         imageAlt=""
         imageSize="icon"
       />
 
       <div>
+        {/* Audit section */}
+        <section
+          id={audit.id}
+          className={styles.serviceSection}
+          aria-labelledby="accessibility-audit-heading"
+        >
+          <div className="container">
+            <div className={styles.serviceContent}>
+              <h2 id="accessibility-audit-heading" className={styles.serviceTitle}>
+                {audit.title}
+              </h2>
+              <p className={styles.serviceIntro}>{audit.intro}</p>
+              <p>{audit.body}</p>
+              <h3 className={styles.practiceLabel}>What&apos;s included:</h3>
+              <ul className={styles.bullets}>
+                {audit.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              <p><strong>Timeframe:</strong> {audit.timeframe}</p>
+              <p><strong>Price:</strong> {audit.price}</p>
+              <p>{audit.followOn}</p>
+              <Link href="/contact" className="btn">
+                Get in touch
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Co-design and Capacity building */}
         {services.map((service, index) => (
           <section
             key={service.id}
             id={service.id}
-            className={`${styles.serviceSection} ${index % 2 === 1 ? styles.alt : ''}`}
+            className={`${styles.serviceSection} ${index % 2 === 0 ? styles.alt : ''}`}
             aria-labelledby={`${service.id}-heading`}
           >
             <div className="container">
@@ -76,12 +95,6 @@ export default function ServicesPage() {
                   {service.title}
                 </h2>
                 <p className={styles.serviceIntro}>{service.intro}</p>
-                <h3 className={styles.practiceLabel}>What this looks like in practice:</h3>
-                <ul className={styles.bullets}>
-                  {service.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
               </div>
             </div>
           </section>
@@ -94,7 +107,7 @@ export default function ServicesPage() {
             Ready to talk about your project?
           </h2>
           <Link href="/contact" className={styles.ctaButton}>
-            Get in touch
+            Contact us to discuss your needs
           </Link>
         </div>
       </section>
