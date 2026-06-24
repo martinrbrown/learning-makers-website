@@ -71,21 +71,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <section className={styles.cpaccBand} aria-labelledby="cpacc-heading">
-        <div className="container">
-          <h3 id="cpacc-heading" className={styles.cpaccHeading}>
-            Preparing for the CPACC exam?
-          </h3>
-          <p className={styles.cpaccBody}>
-            Our free CPACC Quick Guide covers the full IAAP Body of Knowledge (BoK). Use it to
-            prepare for your exam or as a quick reference as you apply accessibility in your work.
-          </p>
-          <Link href="/tools" className="btn">
-            Explore our tools
-          </Link>
-        </div>
-      </section>
     </>
   )
 }

@@ -100,17 +100,6 @@ export default function ServicesPage() {
           </section>
         ))}
       </div>
-
-      <section className={styles.ctaStrip} aria-labelledby="services-cta-heading">
-        <div className="container">
-          <h2 id="services-cta-heading" className={styles.ctaHeading}>
-            Ready to talk about your project?
-          </h2>
-          <Link href="/contact" className={styles.ctaButton}>
-            Contact us to discuss your needs
-          </Link>
-        </div>
-      </section>
     </>
   )
 }

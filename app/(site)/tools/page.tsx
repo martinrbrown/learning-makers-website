@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import HeroSection from '@/components/HeroSection'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -10,13 +11,14 @@ export const metadata: Metadata = {
     'Practical, openly accessible resources to support your accessibility work. No login required.',
 }
 
-const tools = [
+type Tool = { title: string; subtitle: string; href?: string; image: string; comingSoon: boolean }
+
+const tools: Tool[] = [
   {
-    title: 'CPACC Quick Guide',
-    subtitle: 'A structured reference covering the full IAAP Body of Knowledge',
-    href: '/tools/cpacc-companion-guide',
+    title: 'Australian Accessibility Guide',
+    subtitle: 'A structured reference for Australian accessibility professionals',
     image: '/images/cpacc-guide.png',
-    comingSoon: false,
+    comingSoon: true,
   },
   {
     title: 'Accessibility Testing Guide',
@@ -73,6 +75,7 @@ export default function ToolsPage() {
           </ul>
         </div>
       </section>
+      <NewsletterSignup />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/HeroSection'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function CoursesPage() {
           </p>
         </div>
       </section>
+      <NewsletterSignup />
     </>
   )
 }

@@ -1,6 +1,5 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import NewsletterSignup from '@/components/NewsletterSignup'
 
 export default function SiteLayout({
   children,
@@ -14,7 +13,6 @@ export default function SiteLayout({
       </a>
       <Nav />
       <main id="main-content">{children}</main>
-      <NewsletterSignup />
       <Footer />
     </>
   )
