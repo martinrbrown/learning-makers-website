@@ -74,7 +74,7 @@ export default function ServicesPage() {
               <p><strong>Timeframe:</strong> {audit.timeframe}</p>
               <p><strong>Price:</strong> {audit.price}</p>
               <p>{audit.followOn}</p>
-              <Link href="/contact" className="btn">
+              <Link href="/contact" className={`btn ${styles.auditCta}`}>
                 Get in touch
               </Link>
             </div>

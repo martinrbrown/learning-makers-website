@@ -70,12 +70,14 @@ h6 {
   font-weight: 700;
 }
 
-a {
+p a,
+li a {
   color: var(--color-teal-dark);
   text-decoration: underline;
 }
 
-a:hover {
+p a:hover,
+li a:hover {
   color: var(--color-crimson);
 }
 
