@@ -2,18 +2,16 @@
 
 ## The business
 
-Learning Makers is a boutique instructional design and accessibility consultancy
-operated by Martin Brown and Kirsty Brown from Melbourne, Australia. Martin holds
-the IAAP CPACC credential and is a professional member of IAAP. The business is on
-a semi-retirement trajectory — the goal is sustainable, low-overhead income, not scale.
+Learning Makers is a boutique accessibility consultancy operated by Martin Brown
+and Kirsty Brown from Melbourne, Australia. Martin holds the IAAP CPACC credential
+and is a professional member of IAAP. The business runs on a semi-retirement model —
+sustainable, low-overhead income, not scale.
 
-**Target sectors:** government, education and training, and not-for-profit organisations
+**Target market:** Australian for-purpose sector; NDIS providers (roughly 15–150 staff)
+as the beachhead market.
 
-**Two audiences served from one website:**
-- Consulting clients — organisations needing instructional design expertise with
-  an accessibility focus
-- Accessibility practitioners — professionals building or certifying their
-  accessibility knowledge
+**Identity:** An accessibility specialist practice that audits, guides, and trains.
+Not a generalist ID consultancy that also does accessibility.
 
 ## Stack
 
@@ -31,24 +29,16 @@ a semi-retirement trajectory — the goal is sustainable, low-overhead income, n
 | Content | HTML files in `content/[guideSlug]/`; hardcoded in page files elsewhere |
 
 ## Site structure
+
 /                          Homepage
-
-/services                  Services (Co-design, Capacity building, Accessibility and inclusion)
-
-/tools                     Tools index (card-based, repurposed from /articles)
-
-/tools/cpacc-quick-guide   CPACC Quick Guide landing page
-
+/services                  Services (Accessibility audit, Co-design, Capacity building)
+/tools                     Tools index (card-based)
+/tools/cpacc-quick-guide   CPACC Quick Guide landing page (placeholder for AAG — not linked from Tools index)
 /courses                   Courses index
-
 /courses/[guideSlug]       Reader — dynamic route serving all guides
-
 /about                     About (Martin and Kirsty bios)
-
 /contact                   Contact
-
 /privacy                   Privacy statement
-
 /accessibility             Accessibility statement
 
 ## Navigation
@@ -59,42 +49,44 @@ Footer also includes: Privacy statement · Accessibility statement · IAAP crede
 
 ## Services
 
-Three services (Learning Technology was retired):
-1. Co-design
-2. Capacity building
-3. Accessibility and inclusion
+Three services:
+1. Accessibility audit (leads — primary revenue offer)
+2. Co-design
+3. Capacity building
+
+Note: Accessibility and inclusion service retired from the site.
 
 ## Tools
 
 Card-based index at `/tools`. Each card shows: thumbnail image | title | subtitle.
 Coming-soon cards are non-clickable and display a "Coming soon" badge.
 
-**Published:**
-- CPACC Quick Guide — `/tools/cpacc-quick-guide` → internal reader at `/courses/cpacc-quick-guide`
-  - Image: `/public/images/cpacc-guide.png`
-  - Subtitle: A structured reference covering the full IAAP Body of Knowledge
-
 **Coming soon:**
+- Australian Accessibility Guide
+  - Image: `/public/images/cpacc-guide.png`
+  - Subtitle: A structured reference for Australian accessibility professionals
 - Accessibility Testing Guide
   - Image: `/public/images/testing-guide.png`
   - Subtitle: A practical guide to accessibility testing and auditing methods
 
-Newsletter sign-up anchor on Tools page: `/tools#subscribe`
-(Previously `/a11y-courses#subscribe` — update any external references, including
-the CPACC Quick Guide footer)
+Note: `/tools/cpacc-quick-guide` route remains live as a placeholder for the AAG.
+It is not linked from the Tools index or navigation.
+
+Newsletter sign-up on Tools page only (not site-wide).
 
 ## Courses
 
-Card-based index at `/courses`.
+Card-based index at `/courses`. Newsletter sign-up renders on this page.
 
 **Coming soon:**
 - Accessibility Testing and Auditing Course
 
 ## Key components
 
-- `NewsletterSignup` — MailerLite embed, renders automatically site-wide via layout
+- `NewsletterSignup` — MailerLite embed; included explicitly in Tools and Courses
+  pages only. Removed from site-wide layout.
 - Tool card component — shared card showing thumbnail | title | subtitle;
-  coming-soon cards are non-clickable with badge
+  coming-soon cards are non-clickable with badge.
 
 ## Brand
 
@@ -119,6 +111,15 @@ Style Manual). Key rules:
 - Numerals for 2 and above; "zero" and "one" in words
 - Person-first disability language as default
 
+## CSS conventions
+
+- Global `a` rule is scoped to `p a` and `li a` only — components manage their
+  own link and text colours.
+- Body base font size is `1rem` in globals.css — pending CSS session to update
+  to `1.125rem` as the standard body size.
+- Do not add overrides in component CSS to fight inherited link colours —
+  fix at the globals level.
+
 ## Compliance
 
 - Australian Privacy Act compliant
@@ -129,9 +130,11 @@ Style Manual). Key rules:
 ## Development workflow
 
 Claude Code (via VS Code terminal on Windows/PowerShell) handles layout, components,
-new features, and image placement. Martin handles text edits directly in page files,
-image drops into `public/images/`, and manual Git commits via VS Code Source Control.
+new features, and structural changes. Martin handles text edits directly in page
+files, image placement in `public/images/`, and Git commits via VS Code Source Control.
 Claude Code prompts should be comprehensive and batched where possible.
+
+**WAVE triple zero** is the accessibility baseline on the live site. Never regress from it.
 
 ## Reader (Includl)
 
@@ -150,9 +153,9 @@ at `app/(reader)/courses/[guideSlug]/reader.css`.
 
 **Known debt:**
 - `app/api/export/route.ts` — `getGuide('cpacc-quick-guide')` is hardcoded;
-  must be made dynamic before a second guide is published
+  must be made dynamic before a second guide is published.
 - `lib/constants.ts` — `GUIDE_PATH` exported but only used by one marketing page;
-  low priority cleanup
+  low priority cleanup.
 
 **Do not:** add a database, CMS, or CSS framework to the Reader. Plain CSS only.
 WAVE triple zero is the accessibility baseline — never regress from it.
